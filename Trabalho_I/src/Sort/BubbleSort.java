@@ -17,9 +17,9 @@ public class BubbleSort {
         int i;
 
         for (i = 0; i < vetor.length; i++) {
-            for (int j = 1; j < vetor.length - 1; j++) {
+            for (int j = 0; j < vetor.length - 1; j++) {
                 if (vetor[j] > vetor[j + 1]) {
-                    MT.MetodoTrocar(vetor, j, j + 1);
+                    vetor = MT.MetodoTrocar(vetor, j, j + 1);
                 }
             }
         }

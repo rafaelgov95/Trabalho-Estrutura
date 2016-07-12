@@ -5,6 +5,9 @@
  */
 package App;
 
+import Busca.BuscaBinaria;
+import Busca.BuscaSequencialR;
+import Sort.BubbleSort;
 import Vetor.CriarVetor;
 import java.util.Random;
 import java.util.Scanner;
@@ -21,6 +24,9 @@ public class Main {
     public static void main(String[] args) {
 
         CriarVetor CV = new CriarVetor();
+        Sort.BubbleSort bSort = new BubbleSort();
+        Busca.BuscaBinaria buscaB = new BuscaBinaria();
+        Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
 
         while (true) {
 
@@ -30,6 +36,8 @@ public class Main {
             System.out.println("Digite a opção Desejada");
             System.out.println("1 - Criar novo vetor");
             System.out.println("2 - Imprimir meu vetor");
+            System.out.println("3 - Buscar um número em meu vetor");
+            System.out.println("4 - Ordenar meu vetor");
             System.out.println("0 - Sair");
 
             int opcao = Integer.parseInt(ler.nextLine());
@@ -61,6 +69,34 @@ public class Main {
                         System.out.print("|\n");
                     } catch (NullPointerException ex) {
                         System.out.println("Você não possui um vetor para imprimir!");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Digite o número a ser buscado: ");
+                    int procurado = Integer.parseInt(ler.nextLine());
+                    int resulBB = buscaB.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length-1);
+                    int resulBS = buscaS.BuscaSeqRecursiva(vetor, 0, procurado);
+                    if (resulBB == -1  ) {
+                        System.out.println("O número procurado não se encontra no vetor");
+                    } else {
+                        System.out.println("O número procurado está na posição: ");
+                        System.out.println("Na posição " + resulBB + " usando a Busca Binária");
+                        System.out.println("Na posição " + resulBS + " usando a Busca Recursiva");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Qual tipo de ordenação deseja realizar?");
+                    System.out.println("1 - Bubble Sort");
+                    int ord = Integer.parseInt(ler.nextLine());
+                    switch(ord){
+                        case 1:
+                            vetor = bSort.bubbleSort(vetor);
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            break;
+                            
                     }
                     break;
                 case 0:

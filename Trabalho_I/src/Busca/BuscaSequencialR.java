@@ -9,7 +9,7 @@ package Busca;
  *
  * @author Higor - PC
  */
-public class BuscaRecursiva {
+public class BuscaSequencialR {
 
     public int BuscaSeqRecursiva(int vetor[], int n, int procurado) {
         if (n >= 0) {
