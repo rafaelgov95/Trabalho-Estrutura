@@ -5,6 +5,7 @@
  */
 package App;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -14,11 +15,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         Scanner ler = new Scanner(System.in);
 
         while (true) {
-            
+
             System.out.println("-------------------------------------");
             System.out.println("-  Trabalho - Estrutura de Dados I  -");
             System.out.println("-------------------------------------");
@@ -27,28 +28,36 @@ public class Main {
             System.out.println("2 - 8 Posições");
             System.out.println("3 - 20 Posições");
             System.out.println("0 - Sair");
-            
+
             int opcao = Integer.parseInt(ler.nextLine());
-            
+
             switch (opcao) {
                 case 1:
+                    criarVetor(4);
                     break;
                 case 2:
+                    criarVetor(8);
                     break;
                 case 3:
+                    criarVetor(20);
                     break;
-                case 0: 
+                case 0:
+                    System.exit(0);
                     break;
                 default:
-                    break;                
+                    System.out.println("Opção Inválida, Tente Novamente");
+                    break;
             }
-
         }
-
     }
-    
-    public int[] criarVetor(int n){      
+
+    public static int[] criarVetor(int n) {
         int[] vetor = new int[n];
-        return vetor;       
+        
+        Random gerador = new Random();
+        for (int i = 0; i < n; i++) {
+            vetor[i] = gerador.nextInt(1001);
+        }
+        return vetor;
     }
 }
