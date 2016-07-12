@@ -38,6 +38,7 @@ public class Main {
             System.out.println("2 - Imprimir meu vetor");
             System.out.println("3 - Buscar um número em meu vetor");
             System.out.println("4 - Ordenar meu vetor");
+            System.out.println("9 - Créditos");
             System.out.println("0 - Sair");
 
             int opcao = Integer.parseInt(ler.nextLine());
@@ -62,48 +63,74 @@ public class Main {
                     vetor = CV.criarNovoVetor(tamanho);
                     break;
                 case 2:
-                    try {
+                    if (vetor == null) {
+                        System.out.println("***************************************");
+                        System.out.println("Você não possui um vetor para imprimir!");
+                        System.out.println("***************************************");
+                    } else {
                         for (int i = 0; i < vetor.length; i++) {
                             System.out.print("| " + vetor[i] + " ");
                         }
                         System.out.print("|\n");
-                    } catch (NullPointerException ex) {
-                        System.out.println("Você não possui um vetor para imprimir!");
                     }
                     break;
                 case 3:
-                    System.out.print("Digite o número a ser buscado: ");
-                    int procurado = Integer.parseInt(ler.nextLine());
-                    int resulBB = buscaB.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length-1);
-                    int resulBS = buscaS.BuscaSeqRecursiva(vetor, 0, procurado);
-                    if (resulBB == -1  ) {
-                        System.out.println("O número procurado não se encontra no vetor");
+                    if (vetor == null) {
+                        System.out.println("*************************************");
+                        System.out.println("Você não possui um vetor para buscar!");
+                        System.out.println("*************************************");
                     } else {
-                        System.out.println("O número procurado está na posição: ");
-                        System.out.println("Na posição " + resulBB + " usando a Busca Binária");
-                        System.out.println("Na posição " + resulBS + " usando a Busca Recursiva");
+                        System.out.print("Digite o número a ser buscado: ");
+                        int procurado = Integer.parseInt(ler.nextLine());
+                        int resulBB = buscaB.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
+                        int resulBS = buscaS.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
+                        if (resulBB == -1) {
+                            System.out.println("*******************************************");
+                            System.out.println("O número procurado não se encontra no vetor");
+                            System.out.println("*******************************************");
+                        } else {
+                            System.out.println("O número " + procurado + " está...");
+                            System.out.println("Na posição " + resulBB + " usando a Busca Binária");
+                            System.out.println("Na posição " + resulBS + " usando a Busca Sequencial");
+                        }
                     }
                     break;
                 case 4:
-                    System.out.println("Qual tipo de ordenação deseja realizar?");
-                    System.out.println("1 - Bubble Sort");
-                    int ord = Integer.parseInt(ler.nextLine());
-                    switch(ord){
-                        case 1:
-                            vetor = bSort.bubbleSort(vetor);
-                            break;
-                        case 0:
-                            break;
-                        default:
-                            break;
-                            
+                    if (vetor == null) {
+                        System.out.println("**************************************");
+                        System.out.println("Você não possui um vetor para ordenar!");
+                        System.out.println("**************************************");
+                    } else {
+                        System.out.println("Qual tipo de ordenação deseja realizar?");
+                        System.out.println("1 - Bubble Sort");
+                        int ord = Integer.parseInt(ler.nextLine());
+                        switch (ord) {
+                            case 1:
+                                vetor = bSort.bubbleSort(vetor);
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    break;
+                case 9:
+                    System.out.println("#####################################################");
+                    System.out.println("Trabalho I, realizado na matéria Estrutura de Dados");
+                    System.out.println("Implementado por Higor Chaves e Rafael Viana");
+                    System.out.println("Com o auxilio do professor Marcel Kay");
+                    System.out.println("Durante o 3º Semestre do curso Sistemas de Informações");
+                    System.out.println("Julho/2016 - UFMS");
+                    System.out.println("######################################################");
                     break;
                 case 0:
                     System.exit(0);
                     break;
                 default:
+                    System.out.println("*******************************");
                     System.out.println("Opção Inválida, Tente Novamente");
+                    System.out.println("*******************************");
                     break;
             }
         }
