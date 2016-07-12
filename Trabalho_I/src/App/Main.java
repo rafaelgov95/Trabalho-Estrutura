@@ -41,26 +41,17 @@ public class Main {
                         System.out.println("1 - Sim");
                         System.out.println("2 - Não");
                         int s_n = Integer.parseInt(ler.nextLine());
-                        if (s_n == 1) {
-                            System.out.println("Escolha o tamanho do vetor desejado:");
-                            System.out.println("1 - 4 Posições");
-                            System.out.println("2 - 8 Posições");
-                            System.out.println("3 - 20 Posições");
-                            System.out.println("0 - Sair");
-                            int tamanho = Integer.parseInt(ler.nextLine());
-                            vetor = CV.criarNovoVetor(tamanho);
-                        } else if (s_n == 2) {
+                        if (s_n == 2) {
                             break;
                         }
-                    } else {
-                        System.out.println("Escolha o tamanho do vetor desejado:");
-                        System.out.println("1 - 4 Posições");
-                        System.out.println("2 - 8 Posições");
-                        System.out.println("3 - 20 Posições");
-                        System.out.println("0 - Sair");
-                        int tamanho = Integer.parseInt(ler.nextLine());
-                        vetor = CV.criarNovoVetor(tamanho);
                     }
+                    System.out.println("Escolha o tamanho do vetor desejado:");
+                    System.out.println("1 - 4 Posições");
+                    System.out.println("2 - 8 Posições");
+                    System.out.println("3 - 20 Posições");
+                    System.out.println("0 - Sair");
+                    int tamanho = Integer.parseInt(ler.nextLine());
+                    vetor = CV.criarNovoVetor(tamanho);
                     break;
                 case 2:
                     try {
