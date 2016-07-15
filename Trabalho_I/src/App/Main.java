@@ -8,7 +8,7 @@ package App;
 import Busca.BuscaBinaria;
 import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
-import Vetor.CriarVetor;
+import Vetor.Vetor;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -23,7 +23,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CriarVetor CV = new CriarVetor();
+        Vetor CV = new Vetor();
+        Media media = new Media();
         Sort.BubbleSort bSort = new BubbleSort();
         Busca.BuscaBinaria buscaB = new BuscaBinaria();
         Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
@@ -39,6 +40,7 @@ public class Main {
             System.out.println("3 - Buscar um número em meu vetor");
             System.out.println("4 - Ordenar meu vetor");
             System.out.println("9 - Créditos");
+            System.out.println("10 - Imprimir Media de Permutas");
             System.out.println("0 - Sair");
 
             int opcao = Integer.parseInt(ler.nextLine());
@@ -127,6 +129,12 @@ public class Main {
                 case 0:
                     System.exit(0);
                     break;
+                case 10:
+                    System.out.println("Informe o tamanho do vetor");
+                    int tam = Integer.parseInt(ler.nextLine());
+                    media.mediaGeral(tam);
+                    break;
+    
                 default:
                     System.out.println("*******************************");
                     System.out.println("Opção Inválida, Tente Novamente");
