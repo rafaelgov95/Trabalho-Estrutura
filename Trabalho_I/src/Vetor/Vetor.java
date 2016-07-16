@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class Vetor {
 
-  public int permutacao ;
-    public int troca ;
+  public int permutacao=0 ;
+    public int troca=0 ;
 
     public int[] criarNovoVetor(int tamanho) {
 //

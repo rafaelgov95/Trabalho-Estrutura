@@ -8,6 +8,7 @@ package App;
 import Busca.BuscaBinaria;
 import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
+import Sort.MergeSort;
 import Vetor.Vetor;
 import java.util.Random;
 import java.util.Scanner;
@@ -26,9 +27,10 @@ public class Main {
         Vetor CV = new Vetor();
         Media media = new Media();
         Sort.BubbleSort bSort = new BubbleSort();
+        Sort.MergeSort mSort = new MergeSort();
         Busca.BuscaBinaria buscaB = new BuscaBinaria();
         Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
-
+     
         while (true) {
 
             System.out.println("-------------------------------------");
@@ -56,11 +58,11 @@ public class Main {
                             break;
                         }
                     }
-                    System.out.println("Escolha o tamanho do vetor desejado:");
-                    System.out.println("1 - 4 Posições");
-                    System.out.println("2 - 8 Posições");
-                    System.out.println("3 - 20 Posições");
-                    System.out.println("0 - Sair");
+//                    System.out.println("Escolha o tamanho do vetor desejado:");
+//                    System.out.println("1 - 4 Posições");
+//                    System.out.println("2 - 8 Posições");
+//                    System.out.println("3 - 20 Posições");
+//                    System.out.println("0 - Sair");
                     int tamanho = Integer.parseInt(ler.nextLine());
                     vetor = CV.criarNovoVetor(tamanho);
                     break;
@@ -104,12 +106,16 @@ public class Main {
                         System.out.println("**************************************");
                     } else {
                         System.out.println("Qual tipo de ordenação deseja realizar?");
-                        System.out.println("1 - Bubble Sort");
+                        System.out.println("1 - Bubble Sort \n2- Merge Sort");
                         int ord = Integer.parseInt(ler.nextLine());
                         switch (ord) {
                             case 1:
                                 vetor = bSort.bubbleSort(vetor);
                                 break;
+                            case 2:
+                                vetor = mSort.MergeSort(vetor,0,vetor.length);
+                                break;
+
                             case 0:
                                 break;
                             default:
@@ -134,7 +140,7 @@ public class Main {
                     int tam = Integer.parseInt(ler.nextLine());
                     media.mediaGeral(tam);
                     break;
-    
+
                 default:
                     System.out.println("*******************************");
                     System.out.println("Opção Inválida, Tente Novamente");

@@ -18,19 +18,16 @@ public class Media {
         int[] vetorParaOrdenar;
         BubbleSort bubble = new BubbleSort();
         Vetor vetorC = new Vetor();
-
-        for (int j = 0; j < 30; j++) {
+ 
+       
             int[] vetor = vetorC.criarNovoVetor(tamanho);
-            for (int i = 0; i < (vetor.length - 1); i++) {
+            for (int i = 0; i < 30; i++) {
                 vetorParaOrdenar = vetor;
                 bubble.bubbleSort(vetorParaOrdenar);
 //              vetorParaOrdenar = vetor;
 //              merger.mergerSort(vetorParaOrdenar);
             }
-
         }
-        System.out.println("Ele permuto com bubble sort : "+bubble.permutacao / 30+" vezes!!");
+//        System.out.println("Ele permuto com bubble sort : " + bubble.permutacao / 30 + " vezes!!");
 
     }
-
-}
