@@ -13,11 +13,11 @@ import Sort.BubbleSort;
  */
 public class Media {
 
-    BubbleSort bubble;
+    
 
     public void mediaGeral(int vetor_pronto[]) {
         int[] vetorParaOrdenar;
-        bubble = new BubbleSort();
+        BubbleSort bubble = new BubbleSort();
         vetorParaOrdenar = vetor_pronto;
         bubble.bubbleSort(vetorParaOrdenar);
 //              vetorParaOrdenar = vetor;

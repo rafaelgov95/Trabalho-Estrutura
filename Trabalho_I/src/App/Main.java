@@ -9,6 +9,7 @@ import Busca.BuscaBinaria;
 import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
 import Sort.MergeSort;
+import Vetor.ClonarVetor;
 import Vetor.Vetor;
 import java.util.Scanner;
 
@@ -30,6 +31,8 @@ public class Main {
             Sort.MergeSort mSort = new MergeSort();
             Busca.BuscaBinaria buscaB = new BuscaBinaria();
             Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
+            ClonarVetor cVetor = new ClonarVetor();
+
             System.out.println("-------------------------------------");
             System.out.println("-  Trabalho - Estrutura de Dados I  -");
             System.out.println("-------------------------------------");
@@ -74,10 +77,9 @@ public class Main {
                         for (int i = 0; i < vetor.length; i++, quebra_linha++) {
                             System.out.print("| " + vetor[i] + " ");
                             if (quebra_linha == 15) {
-                                System.out.print("\n");
+                                System.out.print(" |\n");
                                 quebra_linha = 0;
                             }
-
                         }
                         System.out.print("|\n");
                     }
@@ -139,20 +141,20 @@ public class Main {
                     System.out.println("Julho/2016 - UFMS");
                     System.out.println("######################################################");
                     break;
-                case 0:
-                    System.exit(0);
-                    break;
                 case 10:
 //                    System.out.println("Informe o tamanho do vetor");
 //                    int tam = Integer.parseInt(ler.nextLine());
                     if (vetor == null) {
                         System.out.println("**************************************");
-                        System.out.println("Você não possui um vetor para ordenar!");
+                        System.out.println("Você não possui um vetor para o teste!");
                         System.out.println("**************************************");
                     } else {
-                        int vetor_aux[] = vetor;
+                        int vetor_aux[] = cVetor.clonarVetor(vetor);
                         media.mediaGeral(vetor_aux);
                     }
+                    break;
+                case 0:
+                    System.exit(0);
                     break;
 
                 default:
