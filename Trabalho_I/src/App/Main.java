@@ -123,10 +123,8 @@ public class Main {
                                 System.out.println("-----------------------");
                                 break;
                             case 2:
-//                               vetor = nSort.sort(vetor);
-                               
+                                vetor = mSort.sort(vetor);
                                 break;
-
                             case 0:
                                 break;
                             default:
@@ -144,8 +142,6 @@ public class Main {
                     System.out.println("######################################################");
                     break;
                 case 10:
-//                    System.out.println("Informe o tamanho do vetor");
-//                    int tam = Integer.parseInt(ler.nextLine());
                     if (vetor == null) {
                         System.out.println("**************************************");
                         System.out.println("Você não possui um vetor para o teste!");

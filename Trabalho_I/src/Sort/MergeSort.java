@@ -5,49 +5,73 @@
  */
 package Sort;
 
+import Vetor.Vetor;
+
 /**
  *
- * @author rafael
+ * @author Higor - PC
  */
-public class MergeSort {
+public class MergeSort extends Vetor {
+        private int[] numbers;
+        private int[] helper;
 
-    MetodoTrocar MT = new MetodoTrocar();
+        private int number;
 
-    public int[] MergeSort(int[] vetor, int inicio, int fim) {
-        if (inicio < fim) {
-            int mid = Math.abs((inicio + fim) / 2);
-            MergeSort(vetor, inicio, mid);
-            MergeSort(vetor, mid + 1, fim);
-            Merge(vetor, inicio, mid, fim);
+        public int[] sort(int[] values) {
+            this.numbers = values;
+            number = values.length;
+            this.helper = new int[number];
+            mergesort(0, number - 1);
+            return numbers;
         }
-        return vetor;
-    }
 
-    
-    
-    public void Merge(int[] vetor, int inicio, int mid, int fim) {
-        int[] L = new int[vetor.length-1];
-        int[] R = new int[vetor.length-1];
-        int j, i;
-        int n1 = (mid - inicio + 1);
-        int n2 = fim - mid;
-        for (i = 0; i < n1 - 1; i++) {
-            L[i] = vetor[inicio + i - 1];
-
-        }
-        for (j = 0; j < n1 - 1; j++) {
-            R[j] = vetor[mid + j];
-        }
-        i = j = 1;
-        L[n1 + 1] = R[n2 + 1] = Integer.MAX_VALUE;
-        for (int k = 0; k < fim; k++) {
-            if (L[k] <= R[k]) {
-                vetor[k] = L[i];
-                i++;
-            } else {
-                vetor[k] = R[j];
-                j++;
+        private void mergesort(int low, int high) {
+            // check if low is smaller then high, if not then the array is sorted
+            comparacao++;
+            if (low < high) {
+                // Get the index of the element which is in the middle
+                int middle = low + (high - low) / 2;
+                // Sort the left side of the array
+                mergesort(low, middle);
+                // Sort the right side of the array
+                mergesort(middle + 1, high);
+                // Combine them both
+                merge(low, middle, high);
             }
         }
-    }
+
+        private void merge(int low, int middle, int high) {
+
+            // Copy both parts into the helper array
+            for (int i = low; i <= high; i++) {
+                helper[i] = numbers[i];
+            }
+
+            int i = low;
+            int j = middle + 1;
+            int k = low;
+            // Copy the smallest values from either the left or the right side back
+            // to the original array
+            comparacao ++;
+            while (i <= middle && j <= high) {
+                comparacao++;
+                if (helper[i] <= helper[j]) {
+                    numbers[k] = helper[i];
+                    i++;
+                } else {
+                    numbers[k] = helper[j];
+                    j++;
+                }
+                k++;
+            }
+            // Copy the rest of the left side of the array into the target array
+            comparacao++;
+            while (i <= middle) {
+                numbers[k] = helper[i];
+                k++;
+                i++;
+            }
+
+        }
+    
 }

@@ -20,13 +20,11 @@ public class BubbleSort extends Vetor {
         for (i = 0; i < vetor.length-1; i++) {
             for (int j = i+1; j < vetor.length; j++) {
                 comparacao++;
-
                 if (vetor[i] > vetor[j]) {
                     vetor = MT.MetodoTrocar(vetor, i, j);
                     permutacao++;
                 }
             }
-//            System.out.println(comparacao);
         }
         return vetor;
     }

@@ -13,11 +13,19 @@ import java.util.Random;
  */
 public class Vetor {
 
-  public int comparacao=0 ;
-    public int permutacao=0 ;
+    public int comparacao = 0;
+    public int permutacao = 0;
 
     public int[] criarNovoVetor(int tamanho) {
-//
+
+        int vetor[] = new int[tamanho];
+        Random gerador = new Random();
+        for (int i = 0; i < vetor.length; i++) {
+            vetor[i] = gerador.nextInt(1001);
+        }
+        return vetor;
+
+        //
 //        int n = 0;
 //
 //        switch (tamanho) {
@@ -36,14 +44,6 @@ public class Vetor {
 //                System.out.println("Opção Inválida");
 //                break;
 //        }
-
-        int vetor[] = new int[tamanho];
-
-        Random gerador = new Random();
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = gerador.nextInt(1001);
-        }
-        return vetor;
     }
 
 }
