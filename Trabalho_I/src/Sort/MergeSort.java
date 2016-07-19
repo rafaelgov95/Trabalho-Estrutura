@@ -15,7 +15,7 @@ public class MergeSort {
 
     public int[] MergeSort(int[] vetor, int inicio, int fim) {
         if (inicio < fim) {
-            int mid = (int) (inicio + fim / 2);
+            int mid = Math.abs((inicio + fim) / 2);
             MergeSort(vetor, inicio, mid);
             MergeSort(vetor, mid + 1, fim);
             Merge(vetor, inicio, mid, fim);
@@ -26,8 +26,8 @@ public class MergeSort {
     
     
     public void Merge(int[] vetor, int inicio, int mid, int fim) {
-        int[] L = new int[vetor.length];
-        int[] R = new int[vetor.length];
+        int[] L = new int[vetor.length-1];
+        int[] R = new int[vetor.length-1];
         int j, i;
         int n1 = (mid - inicio + 1);
         int n2 = fim - mid;

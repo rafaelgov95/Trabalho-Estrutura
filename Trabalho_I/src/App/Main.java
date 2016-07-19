@@ -9,6 +9,7 @@ import Busca.BuscaBinaria;
 import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
 import Sort.MergeSort;
+import Sort.NovoMerge;
 import Vetor.Vetor;
 import java.util.Scanner;
 
@@ -29,6 +30,8 @@ public class Main {
         Media media = new Media();
         Sort.BubbleSort bSort = new BubbleSort();
         Sort.MergeSort mSort = new MergeSort();
+        Sort.NovoMerge nSort = new NovoMerge();
+
         Busca.BuscaBinaria buscaB = new BuscaBinaria();
         Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
             System.out.println("-------------------------------------");
@@ -112,7 +115,8 @@ public class Main {
                                 vetor = bSort.bubbleSort(vetor);
                                 break;
                             case 2:
-                                vetor = mSort.MergeSort(vetor, 0, vetor.length);
+                               vetor = nSort.sort(vetor);
+                               
                                 break;
 
                             case 0:
