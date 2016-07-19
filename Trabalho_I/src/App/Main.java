@@ -10,7 +10,6 @@ import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
 import Sort.MergeSort;
 import Vetor.Vetor;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -19,20 +18,19 @@ import java.util.Scanner;
  */
 public class Main {
 
-    static int vetor[];
+//    static int vetor[];
     static Scanner ler = new Scanner(System.in);
 
     public static void main(String[] args) {
+        int vetor[] = new int[0];
 
         Vetor CV = new Vetor();
+        while (true) {
         Media media = new Media();
         Sort.BubbleSort bSort = new BubbleSort();
         Sort.MergeSort mSort = new MergeSort();
         Busca.BuscaBinaria buscaB = new BuscaBinaria();
         Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
-     
-        while (true) {
-
             System.out.println("-------------------------------------");
             System.out.println("-  Trabalho - Estrutura de Dados I  -");
             System.out.println("-------------------------------------");
@@ -63,6 +61,7 @@ public class Main {
 //                    System.out.println("2 - 8 Posições");
 //                    System.out.println("3 - 20 Posições");
 //                    System.out.println("0 - Sair");
+                    System.out.println("Informe o tamanho do vetor");
                     int tamanho = Integer.parseInt(ler.nextLine());
                     vetor = CV.criarNovoVetor(tamanho);
                     break;
@@ -113,7 +112,7 @@ public class Main {
                                 vetor = bSort.bubbleSort(vetor);
                                 break;
                             case 2:
-                                vetor = mSort.MergeSort(vetor,0,vetor.length);
+                                vetor = mSort.MergeSort(vetor, 0, vetor.length);
                                 break;
 
                             case 0:
@@ -136,9 +135,16 @@ public class Main {
                     System.exit(0);
                     break;
                 case 10:
-                    System.out.println("Informe o tamanho do vetor");
-                    int tam = Integer.parseInt(ler.nextLine());
-                    media.mediaGeral(tam);
+//                    System.out.println("Informe o tamanho do vetor");
+//                    int tam = Integer.parseInt(ler.nextLine());
+                    if (vetor == null) {
+                        System.out.println("**************************************");
+                        System.out.println("Você não possui um vetor para ordenar!");
+                        System.out.println("**************************************");
+                    } else { 
+                        int vetor_aux[] = vetor;
+                        media.mediaGeral(vetor_aux);
+                    }
                     break;
 
                 default:

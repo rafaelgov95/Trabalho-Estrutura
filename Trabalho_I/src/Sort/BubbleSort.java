@@ -18,16 +18,15 @@ public class BubbleSort extends Vetor {
     public int[] bubbleSort(int vetor[]) {
         int i;
         for (i = 0; i < vetor.length-1; i++) {
-//            permutacao++;
             for (int j = i+1; j < vetor.length; j++) {
-                permutacao++;
+                comparacao++;
 
                 if (vetor[i] > vetor[j]) {
                     vetor = MT.MetodoTrocar(vetor, i, j);
-                    troca++;
+                    permutacao++;
                 }
             }
-            System.out.println(permutacao);
+//            System.out.println(comparacao);
         }
         return vetor;
     }

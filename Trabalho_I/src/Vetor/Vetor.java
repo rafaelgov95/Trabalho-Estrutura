@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class Vetor {
 
-  public int permutacao=0 ;
-    public int troca=0 ;
+  public int comparacao=0 ;
+    public int permutacao=0 ;
 
     public int[] criarNovoVetor(int tamanho) {
 //
@@ -40,7 +40,7 @@ public class Vetor {
         int vetor[] = new int[tamanho];
 
         Random gerador = new Random();
-        for (int i = 0; i < vetor.length-1; i++) {
+        for (int i = 0; i < vetor.length; i++) {
             vetor[i] = gerador.nextInt(1001);
         }
         return vetor;

@@ -6,7 +6,6 @@
 package App;
 
 import Sort.BubbleSort;
-import Vetor.Vetor;
 
 /**
  *
@@ -14,20 +13,19 @@ import Vetor.Vetor;
  */
 public class Media {
 
-    public void mediaGeral(int tamanho) {
+    BubbleSort bubble;
+
+    public void mediaGeral(int vetor_pronto[]) {
         int[] vetorParaOrdenar;
-        BubbleSort bubble = new BubbleSort();
-        Vetor vetorC = new Vetor();
- 
-       
-            int[] vetor = vetorC.criarNovoVetor(tamanho);
-            for (int i = 0; i < 30; i++) {
-                vetorParaOrdenar = vetor;
-                bubble.bubbleSort(vetorParaOrdenar);
+        bubble = new BubbleSort();
+        vetorParaOrdenar = vetor_pronto;
+        bubble.bubbleSort(vetorParaOrdenar);
 //              vetorParaOrdenar = vetor;
 //              merger.mergerSort(vetorParaOrdenar);
-            }
-        }
-//        System.out.println("Ele permuto com bubble sort : " + bubble.permutacao / 30 + " vezes!!");
+
+        System.out.println("Ele permuto com bubble sort : " + (bubble.permutacao) + " vezes!!");
+        System.out.println("Comparacao bubble: " + bubble.comparacao);
 
     }
+
+}
