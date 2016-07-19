@@ -26,6 +26,7 @@ public class Main {
 
         Vetor CV = new Vetor();
         while (true) {
+
             Media media = new Media();
             Sort.BubbleSort bSort = new BubbleSort();
             Sort.MergeSort mSort = new MergeSort();
@@ -122,7 +123,8 @@ public class Main {
                                 System.out.println("-----------------------");
                                 break;
                             case 2:
-                                vetor = mSort.MergeSort(vetor, 0, vetor.length);
+//                               vetor = nSort.sort(vetor);
+                               
                                 break;
 
                             case 0:
