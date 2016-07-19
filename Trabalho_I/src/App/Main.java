@@ -18,19 +18,18 @@ import java.util.Scanner;
  */
 public class Main {
 
-//    static int vetor[];
+    static int vetor[];
     static Scanner ler = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int vetor[] = new int[0];
 
         Vetor CV = new Vetor();
         while (true) {
-        Media media = new Media();
-        Sort.BubbleSort bSort = new BubbleSort();
-        Sort.MergeSort mSort = new MergeSort();
-        Busca.BuscaBinaria buscaB = new BuscaBinaria();
-        Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
+            Media media = new Media();
+            Sort.BubbleSort bSort = new BubbleSort();
+            Sort.MergeSort mSort = new MergeSort();
+            Busca.BuscaBinaria buscaB = new BuscaBinaria();
+            Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
             System.out.println("-------------------------------------");
             System.out.println("-  Trabalho - Estrutura de Dados I  -");
             System.out.println("-------------------------------------");
@@ -71,8 +70,14 @@ public class Main {
                         System.out.println("Você não possui um vetor para imprimir!");
                         System.out.println("***************************************");
                     } else {
-                        for (int i = 0; i < vetor.length; i++) {
+                        int quebra_linha = 1;
+                        for (int i = 0; i < vetor.length; i++, quebra_linha++) {
                             System.out.print("| " + vetor[i] + " ");
+                            if (quebra_linha == 15) {
+                                System.out.print("\n");
+                                quebra_linha = 0;
+                            }
+
                         }
                         System.out.print("|\n");
                     }
@@ -110,6 +115,9 @@ public class Main {
                         switch (ord) {
                             case 1:
                                 vetor = bSort.bubbleSort(vetor);
+                                System.out.println("-----------------------");
+                                System.out.println("Seu vetor foi ordenado!");
+                                System.out.println("-----------------------");
                                 break;
                             case 2:
                                 vetor = mSort.MergeSort(vetor, 0, vetor.length);
@@ -141,7 +149,7 @@ public class Main {
                         System.out.println("**************************************");
                         System.out.println("Você não possui um vetor para ordenar!");
                         System.out.println("**************************************");
-                    } else { 
+                    } else {
                         int vetor_aux[] = vetor;
                         media.mediaGeral(vetor_aux);
                     }
