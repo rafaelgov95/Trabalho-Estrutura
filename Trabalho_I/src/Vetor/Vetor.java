@@ -24,26 +24,6 @@ public class Vetor {
             vetor[i] = gerador.nextInt(1001);
         }
         return vetor;
-
-        //
-//        int n = 0;
-//
-//        switch (tamanho) {
-//            case 1:
-//                n = 4;
-//                break;
-//            case 2:
-//                n = 8;
-//                break;
-//            case 3:
-//                n = 20;
-//                break;
-//            case 0:
-//                return null;
-//            default:
-//                System.out.println("Opção Inválida");
-//                break;
-//        }
     }
 
 }

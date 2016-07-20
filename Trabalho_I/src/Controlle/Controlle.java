@@ -88,7 +88,6 @@ public class Controlle {
                 if (vetor == null) {
                     menu.vetorNExistente();
                 } else {
-
                     Busca.BuscaBinaria buscaBinaria = new BuscaBinaria();
                     Busca.BuscaSequencial buscaSequencial = new BuscaSequencial();
                     menu.numeroProcurado();
@@ -99,7 +98,6 @@ public class Controlle {
                         case 1:
                             menu.avisoBusca();
                             int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
-
                             if (resulBB == -1) {
                                 menu.numeroProcuradoNEncontrado();
                             } else {
@@ -126,7 +124,11 @@ public class Controlle {
                             }
                             break;
                         default:
-                            throw new AssertionError();
+                            menu.opcaoMenuPrincipalInvalida();
+                            break;
+                    }
+                    if(escolhaBusca == 0){
+                        break;
                     }
                 }
                 break;
@@ -184,14 +186,6 @@ public class Controlle {
             case 6:
                 menu.creditos();
                 break;
-//            case 10:
-//                if (vetor == null) {
-//                    menu.vetorNExistente();
-//                } else {
-//                    int vetor_aux[] = cVetor.clonarVetor(vetor);
-//                    media.mediaGeral(vetor_aux);
-//                }
-//                break;
             case 0:
                 System.exit(0);
                 break;

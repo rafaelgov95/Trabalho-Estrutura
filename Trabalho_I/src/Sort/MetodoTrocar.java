@@ -5,15 +5,12 @@
  */
 package Sort;
 
-public class MetodoTrocar {
-    
+public class MetodoTrocar {    
     //Método usado para as trocas em todos os Sorts
-    public int[] MetodoTrocar(int vet[], int a, int b) {
-        
+    public int[] MetodoTrocar(int vet[], int a, int b) {        
         int aux = vet[a];
         vet[a] = vet[b];
-        vet[b] = aux;
-        
+        vet[b] = aux;      
         return vet;
     }
 }

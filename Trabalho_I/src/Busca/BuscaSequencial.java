@@ -14,16 +14,6 @@ import Vetor.Vetor;
 public class BuscaSequencial extends Vetor {
 
     public int BuscaSeq(int vetor[],int procurado) {
-//        comparacao++;
-//        if (n >= 0) {
-//            comparacao++;
-//            if (vetor[n] == procurado) {
-//                return n;
-//            } else {
-//                return BuscaSeqRecursiva(vetor, n - 1, procurado);
-//            }
-//        }
-
         for (int i = 0; i < vetor.length; i++) {
             comparacao++;
             if (procurado == vetor[i]) {
