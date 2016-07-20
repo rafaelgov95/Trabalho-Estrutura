@@ -25,6 +25,8 @@ import java.util.Scanner;
 public class Main {
 
     static int vetor[];
+    static int vetor_desordenado[];
+
     static Scanner ler = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
@@ -87,6 +89,7 @@ public class Main {
 //                    int tamanho = Integer.parseInt(ler.nextLine());
                     if (tamanho == 512 | tamanho == 1024 | tamanho == 4096) {
                         vetor = CV.criarNovoVetor(tamanho);
+                        vetor_desordenado = cVetor.clonarVetor(vetor);
                         System.out.println("");
                         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("Vetor criado com sucesso");
@@ -131,8 +134,11 @@ public class Main {
 
                         System.out.print("Digite o número a ser buscado: ");
                         int procurado = Integer.parseInt(ler.nextLine());
+                        //Variaveis para guardar a posição do numero procurado no vetor
                         int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
-                        int resulBS = buscaSequencial.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
+                        //Utilizamos 2 vezes a busca sequencial, uma vez no vetor ordenado, e outra no vetor desordenado
+                        int resulBSO = buscaSequencial.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
+
                         if (resulBB == -1) {
                             System.out.println("");
                             System.out.println("*******************************************");
@@ -140,16 +146,25 @@ public class Main {
                             System.out.println("*******************************************");
                             System.out.println("");
                         } else {
+                            System.out.println("");
                             System.out.println("---------------------------------------");
                             System.out.println("Utilizando a Busca Binária:");
                             System.out.println("  > O número " + procurado + " está na posição: " + resulBB);
                             System.out.println("  > Foram feitas " + buscaBinaria.comparacao + " comparações");
 
                             System.out.println("---------------------------------------");
-                            System.out.println("Utilizando a Busca Sequencial:");
-                            System.out.println("  > O número " + procurado + " está na posição: " + resulBS);
+                            System.out.println("Utilizando a Busca Sequencial no vetor ordenado:");
+                            System.out.println("  > O número " + procurado + " está na posição: " + resulBSO);
                             System.out.println("  > Foram feitas " + buscaSequencial.comparacao + " comparações");
 
+                            buscaSequencial.comparacao = 0;
+                            int resulBSD = buscaSequencial.BuscaSeqRecursiva(vetor_desordenado, vetor_desordenado.length - 1, procurado);
+
+                            System.out.println("---------------------------------------");
+                            System.out.println("Utilizando a Busca Sequencial no vetor desordenado:");
+                            System.out.println("  > O número " + procurado + " está na posição: " + resulBSD);
+                            System.out.println("  > Foram feitas " + buscaSequencial.comparacao + " comparações");
+                            System.out.println("");
                         }
                     }
                     break;
