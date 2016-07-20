@@ -34,4 +34,5 @@ public class Media {
         System.out.println("A média de comparação com bubble sort foi : " + bubble.comparacao / 30);
         System.out.println("A média de comparação com merge sort foi : " + merge.comparacao / 30);
     }
+
 }
