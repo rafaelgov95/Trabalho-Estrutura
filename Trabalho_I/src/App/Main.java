@@ -5,6 +5,7 @@
  */
 package App;
 
+import Media.Media;
 import Busca.BuscaBinaria;
 import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
@@ -28,10 +29,6 @@ public class Main {
         while (true) {
 
             Media media = new Media();
-            Sort.BubbleSort bSort = new BubbleSort();
-            Sort.MergeSort mSort = new MergeSort();
-            Busca.BuscaBinaria buscaB = new BuscaBinaria();
-            Busca.BuscaSequencialR buscaS = new BuscaSequencialR();
             ClonarVetor cVetor = new ClonarVetor();
 
             System.out.println("-------------------------------------");
@@ -91,10 +88,13 @@ public class Main {
                         System.out.println("Você não possui um vetor para buscar!");
                         System.out.println("*************************************");
                     } else {
+                        Busca.BuscaBinaria buscaBinaria = new BuscaBinaria();
+                        Busca.BuscaSequencialR buscaSequencial = new BuscaSequencialR();
+
                         System.out.print("Digite o número a ser buscado: ");
                         int procurado = Integer.parseInt(ler.nextLine());
-                        int resulBB = buscaB.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
-                        int resulBS = buscaS.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
+                        int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
+                        int resulBS = buscaSequencial.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
                         if (resulBB == -1) {
                             System.out.println("*******************************************");
                             System.out.println("O número procurado não se encontra no vetor");
@@ -117,13 +117,17 @@ public class Main {
                         int ord = Integer.parseInt(ler.nextLine());
                         switch (ord) {
                             case 1:
-                                vetor = bSort.bubbleSort(vetor);
+                                BubbleSort bubbleSort = new BubbleSort();
+
+                                vetor = bubbleSort.bubbleSort(vetor);
                                 System.out.println("-----------------------");
                                 System.out.println("Seu vetor foi ordenado!");
                                 System.out.println("-----------------------");
                                 break;
                             case 2:
-                                vetor = mSort.sort(vetor);
+                                MergeSort mergeSort = new MergeSort();
+                                mergeSort.mergesort(vetor);
+
                                 break;
                             case 0:
                                 break;
