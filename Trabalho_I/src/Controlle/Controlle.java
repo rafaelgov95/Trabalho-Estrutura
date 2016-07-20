@@ -33,7 +33,7 @@ public class Controlle {
         Vetor CV = new Vetor();
         GravarLog log = new GravarLog();
         Media media = new Media();
-        ClonarVetor cVetor = new ClonarVetor();
+    
         Menu menu = new Menu();
         Teste teste = new Teste();
         menu.menuPrincipal();
@@ -131,29 +131,29 @@ public class Controlle {
                             BubbleSort bubbleSort = new BubbleSort();
                             double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
                             vetor = testeBubble.vet;
-                            Menu.impresaoBubble(tempoDeExecucaoBubble);
-                            log.escreverNoLog(Menu.gravarBubble(tempoDeExecucaoBubble));
+                            Menu.impresaoBubble(tempoDeExecucaoBubble,bubbleSort.comparacao,bubbleSort.permutacao);
+                            log.escreverNoLog(Menu.gravarBubble(tempoDeExecucaoBubble,bubbleSort.comparacao,bubbleSort.permutacao));
                             break;
                         case 2:
                             MergeSort mergeSort = new MergeSort();
                             double tempoDeExecucaoMerge = teste.getRuntime(vetor, mergeSort);
                             vetor = teste.vet;
-                            Menu.impresaoMerge(tempoDeExecucaoMerge);
-                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoMerge));
+                            Menu.impresaoMerge(tempoDeExecucaoMerge,mergeSort.comparacao,mergeSort.permutacao);
+                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoMerge,mergeSort.comparacao,mergeSort.comparacao));
                             break;
                         case 3:
                             QuickSort quickSort = new QuickSort();
                             double tempoDeExecucaoQuick = teste.getRuntime(vetor, quickSort);
                             vetor = teste.vet;
-                            Menu.impresaoQuick(tempoDeExecucaoQuick);
-                            log.escreverNoLog(Menu.gravarQuick(tempoDeExecucaoQuick));
+                            Menu.impresaoMerge(tempoDeExecucaoQuick,quickSort.comparacao,quickSort.permutacao);
+                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoQuick,quickSort.comparacao,quickSort.comparacao));
                             break;
                         case 4:
                             HeapSort heapSort = new HeapSort();
                             double tempoDeExecucaoHeap = teste.getRuntime(vetor, heapSort);
                             vetor = teste.vet;
-                            Menu.impresaoHeap(tempoDeExecucaoHeap);
-                            log.escreverNoLog(Menu.gravarHeap(tempoDeExecucaoHeap));
+                            Menu.impresaoHeap(tempoDeExecucaoHeap,heapSort.comparacao,heapSort.permutacao);
+                            log.escreverNoLog(Menu.gravarHeap(tempoDeExecucaoHeap,heapSort.comparacao,heapSort.permutacao));
                             break;
                         case 0:
                             break;
@@ -169,7 +169,7 @@ public class Controlle {
                 if (vetor == null) {
                     menu.vetorNExistente();
                 } else {
-                    int vetor_aux[] = cVetor.clonarVetor(vetor);
+                    int vetor_aux[] = CV.clonarVetor(vetor);
                     media.mediaGeral(vetor_aux);
                 }
                 break;
