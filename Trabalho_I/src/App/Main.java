@@ -37,7 +37,9 @@ public class Main {
             ClonarVetor cVetor = new ClonarVetor();
 
             System.out.println("-------------------------------------");
-            System.out.println("-  Trabalho - Estrutura de Dados I  -");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+            System.out.println(">  Trabalho - Estrutura de Dados I  <");
+            System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
             System.out.println("-------------------------------------");
             System.out.println("Digite a opção Desejada");
             System.out.println("1 - Criar novo vetor");
@@ -139,7 +141,7 @@ public class Main {
                         System.out.println("**************************************");
                     } else {
                         System.out.println("Qual tipo de ordenação deseja realizar?");
-                        System.out.println("1 - Bubble Sort \n2- Merge Sort");
+                        System.out.println("1 - Bubble Sort \n2 - Merge Sort");
                         int ord = Integer.parseInt(ler.nextLine());
                         switch (ord) {
                             case 1:
@@ -164,6 +166,9 @@ public class Main {
                             default:
                                 break;
                         }
+                        System.out.println("--------------------------");
+                        System.out.println("Vetor ordenado com sucesso");
+                        System.out.println("--------------------------");
                     }
                     break;
                 case 9:
@@ -199,11 +204,11 @@ public class Main {
 
     public static void impresao(double temp) {
         System.out.println("-----------------------");
-        System.out.printf("Seu vetor foi ordenado em: %.2f Secundos!", temp);
+        System.out.printf("Seu vetor foi ordenado em: %.2f Segundos!\n", temp);
         System.out.println("-----------------------");
     }
 
     public static String gravar(double temp) {
-        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Secundos!\n";
+        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Segundos!\n";
     }
 }
