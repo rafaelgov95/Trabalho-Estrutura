@@ -24,9 +24,9 @@ public class Media {
 
         for (int i = 0; i < 30; i++) {
             vetorParaOrdenar = vetor_pronto;
-            bubble.bubbleSort(vetorParaOrdenar);
+            bubble.sort(vetorParaOrdenar);
             vetorParaOrdenar = vetor_pronto;
-            merge.mergesort(vetorParaOrdenar);
+            merge.sort(vetorParaOrdenar);
             vetorParaOrdenar = vetor_pronto;
         }
 

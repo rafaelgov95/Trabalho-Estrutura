@@ -10,8 +10,12 @@ import Busca.BuscaBinaria;
 import Busca.BuscaSequencialR;
 import Sort.BubbleSort;
 import Sort.MergeSort;
+import Util.GravarLog;
+import Util.Teste;
 import Vetor.ClonarVetor;
 import Vetor.Vetor;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -23,9 +27,10 @@ public class Main {
     static int vetor[];
     static Scanner ler = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Vetor CV = new Vetor();
+        GravarLog log = new GravarLog();
         while (true) {
 
             Media media = new Media();
@@ -56,13 +61,27 @@ public class Main {
                             break;
                         }
                     }
-//                    System.out.println("Escolha o tamanho do vetor desejado:");
-//                    System.out.println("1 - 4 Posições");
-//                    System.out.println("2 - 8 Posições");
-//                    System.out.println("3 - 20 Posições");
-//                    System.out.println("0 - Sair");
-                    System.out.println("Informe o tamanho do vetor");
+                    System.out.println("Escolha o tamanho do vetor desejado:");
+                    System.out.println("1 - 512 Posições");
+                    System.out.println("2 - 1024 Posições");
+                    System.out.println("3 - 4096 Posições");
+                    System.out.println("0 - Sair");
                     int tamanho = Integer.parseInt(ler.nextLine());
+                    switch (tamanho) {
+                        case 1:
+                            tamanho = 512;
+                            break;
+                        case 2:
+                            tamanho = 1024;
+                            break;
+                        case 3:
+                            tamanho = 4096;
+                            break;
+                        case 0:
+                            break;
+                    }
+//                    System.out.println("Informe o tamanho do vetor");
+//                    int tamanho = Integer.parseInt(ler.nextLine());
                     vetor = CV.criarNovoVetor(tamanho);
                     break;
                 case 2:
@@ -117,17 +136,21 @@ public class Main {
                         int ord = Integer.parseInt(ler.nextLine());
                         switch (ord) {
                             case 1:
+
+                                Teste testeBubble = new Teste();
                                 BubbleSort bubbleSort = new BubbleSort();
 
-                                vetor = bubbleSort.bubbleSort(vetor);
-                                System.out.println("-----------------------");
-                                System.out.println("Seu vetor foi ordenado!");
-                                System.out.println("-----------------------");
+                                double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
+                                vetor = testeBubble.vet;
+                                impresao(tempoDeExecucaoBubble);
+                                log.escreverNoLog(gravar(tempoDeExecucaoBubble));
                                 break;
                             case 2:
+                                Teste testeMerge = new Teste();
                                 MergeSort mergeSort = new MergeSort();
-                                mergeSort.mergesort(vetor);
-
+                                double tempoDeExecucaoMerge = testeMerge.getRuntime(vetor, mergeSort);
+                                vetor = testeMerge.vet;
+                                impresao(tempoDeExecucaoMerge);
                                 break;
                             case 0:
                                 break;
@@ -166,5 +189,16 @@ public class Main {
                     break;
             }
         }
+    }
+
+    public static void impresao(double temp) {
+        System.out.println("-----------------------");
+        System.out.printf("Seu vetor foi ordenado em: %.2f Secundos!", temp);
+        System.out.println("-----------------------");
+    }
+
+    public static String gravar(double temp) {
+        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Secundos!\n";
+
     }
 }
