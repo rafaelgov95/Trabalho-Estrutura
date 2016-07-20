@@ -65,23 +65,23 @@ public class Main {
                     System.out.println("1 - 512 Posições");
                     System.out.println("2 - 1024 Posições");
                     System.out.println("3 - 4096 Posições");
-                    System.out.println("0 - Sair");
-//                    int tamanho = Integer.parseInt(ler.nextLine());
-//                    switch (tamanho) {
-//                        case 1:
-//                            tamanho = 512;
-//                            break;
-//                        case 2:
-//                            tamanho = 1024;
-//                            break;
-//                        case 3:
-//                            tamanho = 4096;
-//                            break;
-//                        case 0:
-//                            break;
-//                    }
-                    System.out.println("Informe o tamanho do vetor");
+                    System.out.println("0 - Voltar");
                     int tamanho = Integer.parseInt(ler.nextLine());
+                    switch (tamanho) {
+                        case 1:
+                            tamanho = 512;
+                            break;
+                        case 2:
+                            tamanho = 1024;
+                            break;
+                        case 3:
+                            tamanho = 4096;
+                            break;
+                        case 0:
+                            break;
+                    }
+//                    System.out.println("Informe o tamanho do vetor");
+//                    int tamanho = Integer.parseInt(ler.nextLine());
                     vetor = CV.criarNovoVetor(tamanho);
                     break;
                 case 2:
@@ -121,16 +121,14 @@ public class Main {
                         } else {
                             System.out.println("---------------------------------------");
                             System.out.println("Utilizando a Busca Binária:");
-                            System.out.println("  > O número " + procurado + " está na posição: "+ resulBB);
-                            System.out.println("  > Foram feitas "+buscaBinaria.comparacao+" comparações");
-                            
+                            System.out.println("  > O número " + procurado + " está na posição: " + resulBB);
+                            System.out.println("  > Foram feitas " + buscaBinaria.comparacao + " comparações");
+
                             System.out.println("---------------------------------------");
                             System.out.println("Utilizando a Busca Sequencial:");
-                            System.out.println("  > O número " + procurado + " está na posição: "+ resulBS);
-//                            System.out.println("  > Foram feitas "+buscaBinaria.comparacao+" comparações");
-                            
-                           
-                            
+                            System.out.println("  > O número " + procurado + " está na posição: " + resulBS);
+                            System.out.println("  > Foram feitas " + buscaSequencial.comparacao + " comparações");
+
                         }
                     }
                     break;

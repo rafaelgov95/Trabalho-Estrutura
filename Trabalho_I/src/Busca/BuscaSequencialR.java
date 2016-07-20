@@ -5,14 +5,18 @@
  */
 package Busca;
 
+import Vetor.Vetor;
+
 /**
  *
  * @author Higor - PC
  */
-public class BuscaSequencialR {
+public class BuscaSequencialR extends Vetor {
 
     public int BuscaSeqRecursiva(int vetor[], int n, int procurado) {
+        comparacao++;
         if (n >= 0) {
+            comparacao++;
             if (vetor[n] == procurado) {
                 return n;
             } else {
