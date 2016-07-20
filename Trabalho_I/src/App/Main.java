@@ -66,22 +66,22 @@ public class Main {
                     System.out.println("2 - 1024 Posições");
                     System.out.println("3 - 4096 Posições");
                     System.out.println("0 - Sair");
-                    int tamanho = Integer.parseInt(ler.nextLine());
-                    switch (tamanho) {
-                        case 1:
-                            tamanho = 512;
-                            break;
-                        case 2:
-                            tamanho = 1024;
-                            break;
-                        case 3:
-                            tamanho = 4096;
-                            break;
-                        case 0:
-                            break;
-                    }
-//                    System.out.println("Informe o tamanho do vetor");
 //                    int tamanho = Integer.parseInt(ler.nextLine());
+//                    switch (tamanho) {
+//                        case 1:
+//                            tamanho = 512;
+//                            break;
+//                        case 2:
+//                            tamanho = 1024;
+//                            break;
+//                        case 3:
+//                            tamanho = 4096;
+//                            break;
+//                        case 0:
+//                            break;
+//                    }
+                    System.out.println("Informe o tamanho do vetor");
+                    int tamanho = Integer.parseInt(ler.nextLine());
                     vetor = CV.criarNovoVetor(tamanho);
                     break;
                 case 2:
@@ -119,9 +119,18 @@ public class Main {
                             System.out.println("O número procurado não se encontra no vetor");
                             System.out.println("*******************************************");
                         } else {
-                            System.out.println("O número " + procurado + " está...");
-                            System.out.println("Na posição " + resulBB + " usando a Busca Binária");
-                            System.out.println("Na posição " + resulBS + " usando a Busca Sequencial");
+                            System.out.println("---------------------------------------");
+                            System.out.println("Utilizando a Busca Binária:");
+                            System.out.println("  > O número " + procurado + " está na posição: "+ resulBB);
+                            System.out.println("  > Foram feitas "+buscaBinaria.comparacao+" comparações");
+                            
+                            System.out.println("---------------------------------------");
+                            System.out.println("Utilizando a Busca Sequencial:");
+                            System.out.println("  > O número " + procurado + " está na posição: "+ resulBS);
+//                            System.out.println("  > Foram feitas "+buscaBinaria.comparacao+" comparações");
+                            
+                           
+                            
                         }
                     }
                     break;
@@ -181,7 +190,6 @@ public class Main {
                 case 0:
                     System.exit(0);
                     break;
-
                 default:
                     System.out.println("*******************************");
                     System.out.println("Opção Inválida, Tente Novamente");
@@ -199,6 +207,5 @@ public class Main {
 
     public static String gravar(double temp) {
         return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Secundos!\n";
-
     }
 }

@@ -13,7 +13,6 @@ public class MetodoTrocar {
         int aux = vet[a];
         vet[a] = vet[b];
         vet[b] = aux;
-        
         return vet;
     }
 }
