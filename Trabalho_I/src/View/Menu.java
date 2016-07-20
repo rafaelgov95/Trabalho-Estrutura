@@ -12,18 +12,19 @@ package View;
 public class Menu {
 
     public void menuPrincipal() {
-        System.out.println("-------------------------------------\n"
-                + "-  Trabalho - Estrutura de Dados I  -\n"
-                + "-------------------------------------\n"
-                + "Digite a opção Desejada\n"
-                + "1 - Criar novo vetor\n"
-                + "2 - Imprimir meu vetor\n"
-                + "3 - Buscar um número em meu vetor\n"
-                + "4 - Ordenar meu vetor\n"
-                + "5 - Créditos\n"
-                + "6 - Imprimir Media de Permutas\n"
-                + "0 - Sair");
-
+        System.out.println("-------------------------------------");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println(">  Trabalho - Estrutura de Dados I  <");
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("-------------------------------------");
+        System.out.println("Digite a opção Desejada");
+        System.out.println("1 - Criar novo vetor");
+        System.out.println("2 - Imprimir meu vetor");
+        System.out.println("3 - Buscar um número em meu vetor");
+        System.out.println("4 - Ordenar meu vetor");
+        System.out.println("5 - Imprimir Média de Permutação");
+        System.out.println("10 - Imprimir Media de Permutas");
+        System.out.println("0 - Sair");
     }
 
     public void VetorExistent() {
@@ -90,14 +91,14 @@ public class Menu {
 
     }
 
-    public void ResultadoBuscaSequencialO(int resulBSO, int procurado,int comp) {
+    public void ResultadoBuscaSequencialO(int resulBSO, int procurado, int comp) {
         System.out.println("---------------------------------------");
         System.out.println("Utilizando a Busca Sequencial no vetor ordenado:");
         System.out.println("  > O número " + procurado + " está na posição: " + resulBSO);
         System.out.println("  > Foram feitas " + comp + " comparações");
     }
-    
-    public void ResultadoBuscaSequencialD(int resulBSD, int procurado,int comp) {
+
+    public void ResultadoBuscaSequencialD(int resulBSD, int procurado, int comp) {
         System.out.println("---------------------------------------");
         System.out.println("Utilizando a Busca Sequencial no vetor desordenado:");
         System.out.println("  > O número " + procurado + " está na posição: " + resulBSD);

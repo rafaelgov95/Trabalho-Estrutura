@@ -116,7 +116,6 @@ public class Controlle {
                                 buscaSequencial.comparacao = 0;
                             }
                             break;
-
                         case 3:
                             int resulBSD = buscaSequencial.BuscaSeq(vetor_desordenado, procurado);
                             if (resulBSD == -1) {
@@ -174,6 +173,14 @@ public class Controlle {
                     }
                 }
                 break;
+            case 5:
+                  if (vetor == null) {
+                       menu.vetorNExistente();
+                    } else {
+                        int vetor_aux[] = cVetor.clonarVetor(vetor);
+                        media.mediaGeral(vetor_aux);
+                    }
+                    break;
             case 6:
                 menu.creditos();
                 break;
