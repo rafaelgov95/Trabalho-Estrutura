@@ -79,18 +79,33 @@ public class Main {
                         case 3:
                             tamanho = 4096;
                             break;
-                        case 0:
-                            break;
+                    }
+                    if (tamanho == 0) {
+                        break;
                     }
 //                    System.out.println("Informe o tamanho do vetor");
 //                    int tamanho = Integer.parseInt(ler.nextLine());
-                    vetor = CV.criarNovoVetor(tamanho);
+                    if (tamanho == 512 | tamanho == 1024 | tamanho == 4096) {
+                        vetor = CV.criarNovoVetor(tamanho);
+                        System.out.println("");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("Vetor criado com sucesso");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("");
+                    } else {
+                        System.out.println("***********************************");
+                        System.out.println("Favor digitar uma das opções acima!");
+                        System.out.println("***********************************");
+                    }
+
                     break;
                 case 2:
                     if (vetor == null) {
+                        System.out.println("");
                         System.out.println("***************************************");
                         System.out.println("Você não possui um vetor para imprimir!");
                         System.out.println("***************************************");
+                        System.out.println("");
                     } else {
                         int quebra_linha = 1;
                         for (int i = 0; i < vetor.length; i++, quebra_linha++) {
@@ -105,9 +120,11 @@ public class Main {
                     break;
                 case 3:
                     if (vetor == null) {
+                        System.out.println("");
                         System.out.println("*************************************");
                         System.out.println("Você não possui um vetor para buscar!");
                         System.out.println("*************************************");
+                        System.out.println("");
                     } else {
                         Busca.BuscaBinaria buscaBinaria = new BuscaBinaria();
                         Busca.BuscaSequencialR buscaSequencial = new BuscaSequencialR();
@@ -117,9 +134,11 @@ public class Main {
                         int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
                         int resulBS = buscaSequencial.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
                         if (resulBB == -1) {
+                            System.out.println("");
                             System.out.println("*******************************************");
                             System.out.println("O número procurado não se encontra no vetor");
                             System.out.println("*******************************************");
+                            System.out.println("");
                         } else {
                             System.out.println("---------------------------------------");
                             System.out.println("Utilizando a Busca Binária:");
@@ -136,9 +155,11 @@ public class Main {
                     break;
                 case 4:
                     if (vetor == null) {
+                        System.out.println("");
                         System.out.println("**************************************");
                         System.out.println("Você não possui um vetor para ordenar!");
                         System.out.println("**************************************");
+                        System.out.println("");
                     } else {
                         System.out.println("Qual tipo de ordenação deseja realizar?");
                         System.out.println("1 - Bubble Sort \n2 - Merge Sort");
@@ -149,10 +170,16 @@ public class Main {
                                 Teste testeBubble = new Teste();
                                 BubbleSort bubbleSort = new BubbleSort();
 
-                                double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
-                                vetor = testeBubble.vet;
-                                impresao(tempoDeExecucaoBubble);
-                                log.escreverNoLog(gravar(tempoDeExecucaoBubble));
+                                bubbleSort.sort(vetor);
+                                System.out.println("------------------------------------------------------");
+                                System.out.println("Ordenação utlizando Bubble Sort");
+                                System.out.println("   > Foram feitas " + bubbleSort.comparacao + " comparações");
+                                System.out.println("   > E realizadas " + bubbleSort.permutacao + " permutações");
+
+//                                double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
+//                                vetor = testeBubble.vet;
+//                                impresao(tempoDeExecucaoBubble);
+//                                log.escreverNoLog(gravar(tempoDeExecucaoBubble));
                                 break;
                             case 2:
                                 Teste testeMerge = new Teste();
@@ -166,9 +193,11 @@ public class Main {
                             default:
                                 break;
                         }
-                        System.out.println("--------------------------");
+                        System.out.println("");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         System.out.println("Vetor ordenado com sucesso");
-                        System.out.println("--------------------------");
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        System.out.println("");
                     }
                     break;
                 case 9:
@@ -182,9 +211,11 @@ public class Main {
                     break;
                 case 10:
                     if (vetor == null) {
+                        System.out.println("");
                         System.out.println("**************************************");
                         System.out.println("Você não possui um vetor para o teste!");
                         System.out.println("**************************************");
+                        System.out.println("");
                     } else {
                         int vetor_aux[] = cVetor.clonarVetor(vetor);
                         media.mediaGeral(vetor_aux);
@@ -194,9 +225,11 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
+                    System.out.println("");
                     System.out.println("*******************************");
                     System.out.println("Opção Inválida, Tente Novamente");
                     System.out.println("*******************************");
+                    System.out.println("");
                     break;
             }
         }
