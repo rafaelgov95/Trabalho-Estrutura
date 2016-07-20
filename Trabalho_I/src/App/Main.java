@@ -100,7 +100,6 @@ public class Main {
                         System.out.println("Favor digitar uma das opções acima!");
                         System.out.println("***********************************");
                     }
-
                     break;
                 case 2:
                     if (vetor == null) {
@@ -122,6 +121,7 @@ public class Main {
                     }
                     break;
                 case 3:
+
                     if (vetor == null) {
                         System.out.println("");
                         System.out.println("*************************************");
@@ -129,6 +129,15 @@ public class Main {
                         System.out.println("*************************************");
                         System.out.println("");
                     } else {
+
+                        System.out.println("");
+                        System.out.println("***************   Aviso   ***************");
+                        System.out.println(" Lembre-se que: para a busca binária ser ");
+                        System.out.println("   realizada corretamente é necessário ");
+                        System.out.println("       estar com o vetor ordenado");
+                        System.out.println("***************   Aviso   ***************");
+                        System.out.println("");
+
                         Busca.BuscaBinaria buscaBinaria = new BuscaBinaria();
                         Busca.BuscaSequencialR buscaSequencial = new BuscaSequencialR();
 
@@ -139,7 +148,7 @@ public class Main {
                         //Utilizamos 2 vezes a busca sequencial, uma vez no vetor ordenado, e outra no vetor desordenado
                         int resulBSO = buscaSequencial.BuscaSeqRecursiva(vetor, vetor.length - 1, procurado);
 
-                        if (resulBB == -1) {
+                        if (resulBB == -1 && resulBSO == -1) {
                             System.out.println("");
                             System.out.println("*******************************************");
                             System.out.println("O número procurado não se encontra no vetor");
