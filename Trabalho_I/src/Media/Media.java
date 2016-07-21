@@ -19,6 +19,12 @@ public class Media {
     BubbleSort bubble = new BubbleSort();
     MergeSort merge = new MergeSort();
 
+    /**
+     * Método que roda 30 vezes todos os sorts,
+     * e calcúla a média de permutações e comparações
+     * realizadas
+     * @param vetor_pronto 
+     */
     public void mediaGeral(int vetor_pronto[]) {
         int[] vetorParaOrdenar;
 

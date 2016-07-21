@@ -29,6 +29,12 @@ public class Controlle {
     static int vetor[];
     static int vetor_desordenado[];
     static Scanner ler = new Scanner(System.in);
+    
+    /**
+     * Método de controle de todo o algoritmo, aqui são lidas as entradas do usuário,
+     * e chamadas todas as outras funções
+     * @throws IOException 
+     */
 
     public void App() throws IOException {
         Vetor CV = new Vetor();

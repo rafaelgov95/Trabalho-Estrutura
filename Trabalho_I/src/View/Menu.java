@@ -11,6 +11,10 @@ package View;
  */
 public class Menu {
 
+    /**
+     * Método de impressão: Menu principal do programa
+     *
+     */
     public void menuPrincipal() {
         System.out.println("-------------------------------------");
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
@@ -27,12 +31,20 @@ public class Menu {
         System.out.println("0 - Sair");
     }
 
+    /**
+     * Método de impressão: Aviso de que já existe um vetor criado
+     *
+     */
     public void VetorExistent() {
         System.out.println("Você já possui um vetor, tem certeza que deseja substituí-lo?\n"
                 + "1 - Sim\n"
                 + "2 - Não");
     }
 
+    /**
+     * Método de impressão: Pergunta o tamanho do vetor a ser criado
+     *
+     */
     public void tamanhoVetor() {
         System.out.println("Escolha o tamanho do vetor desejado:\n"
                 + "1 - 512 Posições\n"
@@ -43,13 +55,21 @@ public class Menu {
 
     }
 
+    /**
+     * Método de impressão: Aviso de que ainda não existe um vetor
+     *
+     */
     public void vetorNExistente() {
-        System.out.println("***************************************\n"
-                + "Você não possui um vetor para imprimir!\n"
-                + "***************************************");
+        System.out.println("**************************");
+        System.out.println("Você não possui um vetor!!");
+        System.out.println("**************************");
 
     }
 
+    /**
+     * Método de impressão: Menu de escolha das buscas
+     *
+     */
     public void menuEscolhaBusca() {
         System.out.println("Escolha o tipo de busca:\n"
                 + "1 - Busca Binaria\n"
@@ -59,10 +79,19 @@ public class Menu {
 
     }
 
+    /**
+     * Método de impressão: Pergunta o numero a ser buscado
+     *
+     */
     public void numeroProcurado() {
         System.out.println("Entre com o numero buscado no vetor:");
     }
 
+    /**
+     * Método de impressão: Aviso de que se o vetor não estiver ordenado, a
+     * busca binária não irá funcionar
+     *
+     */
     public void avisoBusca() {
         System.out.println("");
         System.out.println("***************   Aviso   ***************");
@@ -74,15 +103,25 @@ public class Menu {
 
     }
 
+    /**
+     * Método de impressão: Aviso de que o número procurado não está no vetor
+     *
+     */
     public void numeroProcuradoNEncontrado() {
         System.out.println("*******************************************\n"
                 + "O número procurado não se encontra no vetor\n"
                 + "*******************************************");
     }
 
+    /**
+     * Método de impressão: Exibe o resultado da Busca binária, mostrando a
+     * posição do número, e quantas comparações foram utilizadas na busca
+     *
+     * @param resulBB Resultado do método de busca binária
+     * @param procurado Número que foi procurado
+     * @param numComp Número de comparações realizadas
+     */
     public void ResultadoBuscaBinaria(int resulBB, int procurado, int numComp) {
-//        System.out.println("O número " + procurado + " está...\n"
-//                + "Na posição " + resulBB + " usando a Busca Binária");
         System.out.println("");
         System.out.println("---------------------------------------");
         System.out.println("Utilizando a Busca Binária:");
@@ -91,6 +130,15 @@ public class Menu {
 
     }
 
+    /**
+     * Método de impressão: Exibe o resultado da Busca sequencial no vetor
+     * ordenado, mostrando a posição do número, e quantas comparações foram
+     * utilizadas na busca
+     *
+     * @param resulBSO Resultado do método de busca sequencial
+     * @param procurado Número que foi procurado
+     * @param comp Número de comparações realizadas
+     */
     public void ResultadoBuscaSequencialO(int resulBSO, int procurado, int comp) {
         System.out.println("---------------------------------------");
         System.out.println("Utilizando a Busca Sequencial no vetor ordenado:");
@@ -98,6 +146,15 @@ public class Menu {
         System.out.println("  > Foram feitas " + comp + " comparações");
     }
 
+    /**
+     * Método de impressão: Exibe o resultado da Busca sequencial no vetor
+     * desordenado, mostrando a posição do número, e quantas comparações foram
+     * utilizadas na busca
+     *
+     * @param resulBSD Resultado do método de busca sequencial
+     * @param procurado Número que foi procurado
+     * @param comp Número de comparações realizadas
+     */
     public void ResultadoBuscaSequencialD(int resulBSD, int procurado, int comp) {
         System.out.println("---------------------------------------");
         System.out.println("Utilizando a Busca Sequencial no vetor desordenado:");
@@ -105,12 +162,21 @@ public class Menu {
         System.out.println("  > Foram feitas " + comp + " comparações");
     }
 
+    /**
+     * Método de impressão: Pergunta qual tipo de ordenação o usuário deseja
+     * realizar
+     *
+     */
     public void MenuOrdena() {
         System.out.println("Qual tipo de ordenação deseja realizar?\n"
                 + "1 - Bubble Sort\n2 - Merge Sort\n2 - Quick Sort\n2 - Heap Sort");
 
     }
 
+    /**
+     * Método de impressão: Exibe os créditos do programa
+     *
+     */
     public void creditos() {
         System.out.println("#####################################################\n"
                 + "Trabalho I, realizado na matéria Estrutura de Dados\n"
@@ -121,24 +187,44 @@ public class Menu {
                 + "######################################################");
     }
 
+    /**
+     * Método de impressão: Exibe o tempo que levou o método BubbleSort
+     *
+     * @param temp Tempo de execução
+     */
     public static void impresaoBubble(double temp) {
         System.out.println("-----------------------");
         System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando BubbleSort!", temp);
         System.out.println("-----------------------");
     }
 
+    /**
+     * Método de impressão: Exibe o tempo que levou o método MergeSort
+     *
+     * @param temp Tempo de execução
+     */
     public static void impresaoMerge(double temp) {
         System.out.println("-----------------------");
         System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando MergeSort!", temp);
         System.out.println("-----------------------");
     }
 
+    /**
+     * Método de impressão: Exibe o tempo que levou o método QuickSort
+     *
+     * @param temp Tempo de execução
+     */
     public static void impresaoQuick(double temp) {
         System.out.println("-----------------------");
         System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando QuickSort!", temp);
         System.out.println("-----------------------");
     }
 
+    /**
+     * Método de impressão: Exibe o tempo que levou o método HeapSort
+     *
+     * @param temp Tempo de execução
+     */
     public static void impresaoHeap(double temp) {
         System.out.println("-----------------------");
         System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando HeapSort!", temp);
@@ -165,6 +251,9 @@ public class Menu {
 
     }
 
+    /**
+     * Método de impressão: Aviso de que a opção digitada é invalida
+     */
     public void opcaoMenuPrincipalInvalida() {
         System.out.println("");
         System.out.println("*******************************");
@@ -173,6 +262,9 @@ public class Menu {
         System.out.println("");
     }
 
+    /**
+     * Método de impressão: Aviso de que o vetor foi criado
+     */
     public void vetorCriado() {
         System.out.println("");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");

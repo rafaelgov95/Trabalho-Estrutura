@@ -13,23 +13,36 @@ import Vetor.Vetor;
  */
 public class BuscaBinaria extends Vetor {
 
-    public int buscaBinariaRecursiva(int vetor[], int buscar, int esq, int dir) {
+    /**
+     * Método de busca binária recursivo, onde é passado
+     * um vetor, o numero a ser buscado, e o as posições
+     * inicio e fim do vetor, como resultado, é retornado 
+     * um inteiro, que indica a posição do número buscado
+     * no vetor. Caso o retorno seja -1, o número buscado, 
+     * não está no vetor.
+     * @param vetor  O vetor que será usado na busca
+     * @param procurado  Número a ser procurado
+     * @param inicio  A posição inicial do vetor
+     * @param fim  A posição final do vetor
+     * @return int  Posição do número procurado
+     */
+    public int buscaBinariaRecursiva(int vetor[], int procurado, int inicio, int fim) {
 
-        int meio = (esq + dir) / 2;
+        int meio = (inicio + fim) / 2;
         int valorMeio = vetor[meio];
 
-        if (esq > dir) {
+        if (inicio > fim) {
             comparacao++;
             return -1;
-        } else if (valorMeio == buscar) {// se o valor do meio for igual ao valor informado pelo usuário..
+        } else if (valorMeio == procurado) {// se o valor do meio for igual ao valor informado pelo usuário..
             comparacao = comparacao + 2;
             return meio;//retorna a média do vetor, senão...
-        } else if (valorMeio > buscar) {//se o valor do meio for menor que o valor informado pelo usuário..
+        } else if (valorMeio > procurado) {//se o valor do meio for menor que o valor informado pelo usuário..
             comparacao = comparacao + 3;
-            return buscaBinariaRecursiva(vetor, buscar, esq, meio - 1);//retorna o valor das variavéis somando 1 na media e o maior, senão..
+            return buscaBinariaRecursiva(vetor, procurado, inicio, meio - 1);//retorna o valor das variavéis somando 1 na media e o maior, senão..
         } else {
             comparacao = comparacao + 3;
-            return buscaBinariaRecursiva(vetor, buscar, meio + 1, dir);//retorna os valores das variáveis tirando 1 da média e o menor.
+            return buscaBinariaRecursiva(vetor, procurado, meio + 1, fim);//retorna os valores das variáveis tirando 1 da média e o menor.
         }
 
     }

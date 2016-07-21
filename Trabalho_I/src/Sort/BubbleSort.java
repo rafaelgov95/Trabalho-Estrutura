@@ -14,10 +14,12 @@ import Util.InterfaceTeste;
  */
 public class BubbleSort extends Vetor implements InterfaceTeste<int[]> {
 
-//    public void sort(int[] valor) {
-//        BubbleSort.this(valor);
-//    }
-
+    /**
+     * Método de ordenação bubble sort, recebe um vetor como parâmetro
+     * e o retorna totalmente ordenado.
+     * @param vetor Vetor a ser ordenado
+     * @return
+     */
     public int[] sort(int vetor[]) {
         MetodoTrocar MT = new MetodoTrocar();
         int i;
@@ -32,7 +34,5 @@ public class BubbleSort extends Vetor implements InterfaceTeste<int[]> {
         }
         return vetor;
     }
-
-   
 
 }

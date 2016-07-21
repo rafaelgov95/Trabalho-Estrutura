@@ -16,6 +16,13 @@ public class Vetor {
     public int comparacao = 0;
     public int permutacao = 0;
 
+    /**
+     * Método para criar um novo vetor.
+     * Recebe como parâmetro um tamanho e cria o vetor com base nele.
+     * Também já atribuido valores aleatórios a todas as posições, que variam de 0 a 1000.
+     * @param tamanho Tamanho que o vetor terá.
+     * @return int[] Vetor criado
+     */
     public int[] criarNovoVetor(int tamanho) {
 
         int vetor[] = new int[tamanho];
