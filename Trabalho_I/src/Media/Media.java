@@ -5,34 +5,41 @@ package Media;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import Sort.BubbleSort;
+import Sort.HeapSort;
 import Sort.MergeSort;
+import Sort.QuickSort;
+import Util.GravarLog;
+import Vetor.Vetor;
+import View.Menu;
+import com.sun.xml.internal.bind.v2.model.annotation.Quick;
 
 /**
  *
  * @author rafael
  */
-public class Media {
+public class Media extends Vetor {
 
+    GravarLog gLog = new GravarLog();
+    Menu menu = new Menu();
     BubbleSort bubble = new BubbleSort();
     MergeSort merge = new MergeSort();
+    QuickSort quick = new QuickSort();
+    HeapSort heap = new HeapSort();
 
     public void mediaGeral(int vetor_pronto[]) {
         int[] vetorParaOrdenar;
-
         for (int i = 0; i < 30; i++) {
-            vetorParaOrdenar = vetor_pronto;
+            vetorParaOrdenar = clonarVetor(vetor_pronto);
             bubble.sort(vetorParaOrdenar);
-            vetorParaOrdenar = vetor_pronto;
+            vetorParaOrdenar = clonarVetor(vetor_pronto);
             merge.sort(vetorParaOrdenar);
-            vetorParaOrdenar = vetor_pronto;
+            vetorParaOrdenar = clonarVetor(vetor_pronto);
+            heap.sort(vetorParaOrdenar);
+            quick.sort(vetor_pronto);
         }
 
-        System.out.println("A média de permutação com bubble sort : " + (bubble.permutacao/30) + " vezes!!");
-        System.out.println("A média de comparação com bubble sort foi : " + bubble.comparacao / 30);
-        System.out.println("A média de comparação com merge sort foi : " + merge.comparacao / 30);
+        Menu.impresaoMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao);
     }
 
 }

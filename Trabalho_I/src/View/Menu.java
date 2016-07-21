@@ -122,6 +122,10 @@ public class Menu {
                 + "######################################################");
     }
 
+    public static void impresaoMedia(int bubblepermuta, int bubblecompara, int mergepermuta, int mergecompara, int heappermuta, int heapcompara, int quickpermuta, int quickcompara) {
+        System.out.println(gravarMedia(bubblepermuta, bubblecompara, mergepermuta, mergecompara, heappermuta, heapcompara, quickpermuta, quickcompara));
+    }
+
     public static void impresaoBubble(double temp, int comp, int perm) {
         System.out.print(gravarBubble(temp, comp, perm));
 
@@ -137,6 +141,23 @@ public class Menu {
 
     public static void impresaoHeap(double temp, int comp, int perm) {
         System.out.print(gravarHeap(temp, comp, perm));
+    }
+
+    public static String gravarMedia(int bubblepermuta, int bubblecompara, int mergepermuta, int mergecompara, int heappermuta, int heapcompara, int quickpermuta, int quickcompara) {
+        return "---------------------Resultado Media de 30 Comparações e Permutações-----------------------------"
+                + "\nMedia Utilizando BuubleSort"
+                + "A média de permutação : " + (bubblepermuta / 30) + " vezes!\n"
+                + "A média de comparação : " + (bubblecompara / 30) + " vezes!\n"
+                + "\nMedia Utilizando Merge"
+                + "A média de permutação : " + (mergepermuta / 30) + " vezes!\n"
+                + "A média de comparação : " + (mergecompara / 30) + " vezes!\n"
+                + "\nMedia Utilizando Quick"
+                + "A média de permutação : " + (quickpermuta / 30) + " vezes!\n"
+                + "A média de comparação : " + (quickcompara / 30) + " vezes!\n"
+                + "\nMedia Utilizando Heap"
+                + "A média de permutação : " + (heappermuta / 30) + " vezes!\n"
+                + "A média de comparação : " + (heapcompara / 30) + " vezes!\n"
+                + "\"--------------------------------------------->FIM<------------------------------------------\"";
     }
 
     public static String gravarBubble(double temp, int comp, int perm) {
@@ -172,15 +193,15 @@ public class Menu {
                 + "*******************************\n"
                 + "Opção Inválida, Tente Novamente\n"
                 + "*******************************\n");
-        
+
     }
 
     public void vetorCriado() {
         System.out.println("\n"
-                +"~~~~~~~~~~~~~~~~~~~~~~~~\n"
-                +"Vetor criado com sucesso\n"
-                +"~~~~~~~~~~~~~~~~~~~~~~~~\n");
-       
+                + "~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                + "Vetor criado com sucesso\n"
+                + "~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
     }
 
 }

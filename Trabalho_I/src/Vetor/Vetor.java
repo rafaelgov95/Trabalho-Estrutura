@@ -28,9 +28,7 @@ public class Vetor {
 
     public int[] clonarVetor(int vetor_original[]) {
         int novo_vetor[] = new int[vetor_original.length];
-        for (int i = 0; i < vetor_original.length; i++) {
-            novo_vetor[i] = vetor_original[i];
-        }
+        System.arraycopy(vetor_original, 0, novo_vetor, 0, vetor_original.length);
         return novo_vetor;
     }
 }
