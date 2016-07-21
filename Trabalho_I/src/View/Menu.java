@@ -178,28 +178,28 @@ public class Menu {
     }
 
     public static String gravarBubble(double temp, int comp, int perm) {
-        return "Ordenação utlizando Bubble Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+        return "Ordenação utlizando Bubble Sort\n" + "Seu vetor foi ordenado em: " + String.format("%.5f", temp) + " Segundos!\n"
                 + "   > Foram feitas " + comp + " comparações\n"
                 + "   > E realizadas " + perm + " permutações\n";
 
     }
 
     public static String gravarMerge(double temp, int comp, int perm) {
-        return "Ordenação utlizando Merge Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+        return "Ordenação utlizando Merge Sort\n" + "Seu vetor foi ordenado em: " + String.format("%.5f", temp) + " Segundos!\n"
                 + "   > Foram feitas " + comp + " comparações\n"
                 + "   > E realizadas " + perm + " permutações\n";
 
     }
 
     public static String gravarQuick(double temp, int comp, int perm) {
-        return "Ordenação utlizando Quick Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+        return "Ordenação utlizando Quick Sort\n" + "Seu vetor foi ordenado em: " + String.format("%.5f", temp) + " Segundos!\n"
                 + "   > Foram feitas " + comp + " comparações\n"
                 + "   > E realizadas " + perm + " permutações\n";
 
     }
 
     public static String gravarHeap(double temp, int comp, int perm) {
-        return "Ordenação utlizando Heap Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+        return "Ordenação utlizando Heap Sort\n" + "Seu vetor foi ordenado em: " +String.format("%.5f", temp) + " Segundos!\n"
                 + "   > Foram feitas " + comp + " comparações\n"
                 + "   > E realizadas " + perm + " permutações\n";
 

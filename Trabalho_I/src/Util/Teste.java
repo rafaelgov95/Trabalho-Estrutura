@@ -6,6 +6,7 @@
 package Util;
 
 import Sort.MergeSort;
+import java.text.DecimalFormat;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,9 +22,8 @@ public class Teste {
         this.tempInicial = System.nanoTime();
         this.vet = metodo.sort(valor);
         double tempo = System.nanoTime() - tempInicial;
-    
         return (double)(tempo/ 1000000000.0);
-
+        
     }
 
 }
