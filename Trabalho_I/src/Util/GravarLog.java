@@ -30,8 +30,7 @@ public class GravarLog {
     public void escreverNoLog(String log) throws IOException {
         cont++;
         String dir = System.getProperty("user.home");
-        Path path = Paths.get(dir+"/log.txt");
-        try (BufferedWriter escritor = Files.newBufferedWriter(path, Charset.defaultCharset())) {
+            try (BufferedWriter escritor = new BufferedWriter(new FileWriter(dir+"/log.txt",true))) {
             escritor.append(String.valueOf("\"------------------------------------------------------\nLog de Numero: "+(cont++)+"\n"+"Criado Em: "+(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()))+"\n\n"+ log)+"-----------------------------------------------------\n");
             escritor.newLine();
         }

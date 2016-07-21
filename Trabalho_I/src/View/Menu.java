@@ -121,47 +121,48 @@ public class Menu {
                 + "######################################################");
     }
 
-    public static void impresaoBubble(double temp) {
-        System.out.println("-----------------------");
-        System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando BubbleSort!", temp);
-        System.out.println("-----------------------");
-    }
-
-    public static void impresaoMerge(double temp) {
-        System.out.println("-----------------------");
-        System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando MergeSort!", temp);
-        System.out.println("-----------------------");
-    }
-
-    public static void impresaoQuick(double temp) {
-        System.out.println("-----------------------");
-        System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando QuickSort!", temp);
-        System.out.println("-----------------------");
-    }
-
-    public static void impresaoHeap(double temp) {
-        System.out.println("-----------------------");
-        System.out.printf("Seu vetor foi ordenado em: %.2f Nano Secundos utilizando HeapSort!", temp);
-        System.out.println("-----------------------");
-    }
-
-    public static String gravarBubble(double temp) {
-        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Nano Secundos utilizando BubbleSort!\n";
+    public static void impresaoBubble(double temp, int comp, int perm) {
+        System.out.print(gravarBubble(temp, comp, perm));
 
     }
 
-    public static String gravarMerge(double temp) {
-        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Nano Secundos utilizando MergeSort!\n";
+    public static void impresaoMerge(double temp, int comp, int perm) {
+        System.out.print(gravarMerge(temp, comp, perm));
+    }
+
+    public static void impresaoQuick(double temp, int comp, int perm) {
+        System.out.print(gravarQuick(temp, comp, perm));
+    }
+
+    public static void impresaoHeap(double temp, int comp, int perm) {
+        System.out.print(gravarHeap(temp, comp, perm));
+    }
+
+    public static String gravarBubble(double temp, int comp, int perm) {
+        return "Ordenação utlizando Bubble Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+                + "   > Foram feitas " + comp + " comparações\n"
+                + "   > E realizadas " + perm + " permutações\n";
 
     }
 
-    public static String gravarQuick(double temp) {
-        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Nano Secundos utilizando QuickSort!\n";
+    public static String gravarMerge(double temp, int comp, int perm) {
+        return "Ordenação utlizando Merge Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+                + "   > Foram feitas " + comp + " comparações\n"
+                + "   > E realizadas " + perm + " permutações\n";
 
     }
 
-    public static String gravarHeap(double temp) {
-        return "Seu vetor foi ordenado em:" + String.valueOf(temp) + "Nano Secundos utilizando HeapSort!\n";
+    public static String gravarQuick(double temp, int comp, int perm) {
+        return "Ordenação utlizando Quick Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+                + "   > Foram feitas " + comp + " comparações\n"
+                + "   > E realizadas " + perm + " permutações\n";
+
+    }
+
+    public static String gravarHeap(double temp, int comp, int perm) {
+        return "Ordenação utlizando Heap Sort\n" + "Seu vetor foi ordenado em: " + String.valueOf(temp) + " Segundos!\n"
+                + "   > Foram feitas " + comp + " comparações\n"
+                + "   > E realizadas " + perm + " permutações\n";
 
     }
 
