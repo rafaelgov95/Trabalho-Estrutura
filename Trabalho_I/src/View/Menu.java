@@ -12,19 +12,19 @@ package View;
 public class Menu {
 
     public void menuPrincipal() {
-        System.out.println("-------------------------------------");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println(">  Trabalho - Estrutura de Dados I  <");
-        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-        System.out.println("-------------------------------------");
-        System.out.println("Digite a opção Desejada");
-        System.out.println("1 - Criar novo vetor");
-        System.out.println("2 - Imprimir meu vetor");
-        System.out.println("3 - Buscar um número em meu vetor");
-        System.out.println("4 - Ordenar meu vetor");
-        System.out.println("5 - Imprimir Média de Permutação");
-        System.out.println("10 - Imprimir Media de Permutas");
-        System.out.println("0 - Sair");
+        System.out.println("-------------------------------------\n"
+                + "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
+                + ">  Trabalho - Estrutura de Dados I  <\n"
+                + "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
+                + "-------------------------------------\n"
+                + "Digite a opção Desejada\n"
+                + "1 - Criar novo vetor\n"
+                + "2 - Imprimir meu vetor\n"
+                + "3 - Buscar um número em meu vetor\n"
+                + "4 - Ordenar meu vetor\n"
+                + "5 - Imprimir Média de Permutação\n"
+                + "10 - Imprimir Media de Permutas\n"
+                + "0 - Sair");
     }
 
     public void VetorExistent() {
@@ -64,13 +64,12 @@ public class Menu {
     }
 
     public void avisoBusca() {
-        System.out.println("");
-        System.out.println("***************   Aviso   ***************");
-        System.out.println(" Lembre-se que: para a busca binária ser ");
-        System.out.println("   realizada corretamente é necessário ");
-        System.out.println("       estar com o vetor ordenado");
-        System.out.println("***************   Aviso   ***************");
-        System.out.println("");
+        System.out.println("\n"
+                + "***************   Aviso   ***************\n"
+                + " Lembre-se que: para a busca binária ser\n"
+                + "   realizada corretamente é necessário \n"
+                + "       estar com o vetor ordenado\n"
+                + "***************   Aviso   ***************\n");
 
     }
 
@@ -81,33 +80,35 @@ public class Menu {
     }
 
     public void ResultadoBuscaBinaria(int resulBB, int procurado, int numComp) {
-//        System.out.println("O número " + procurado + " está...\n"
-//                + "Na posição " + resulBB + " usando a Busca Binária");
-        System.out.println("");
-        System.out.println("---------------------------------------");
-        System.out.println("Utilizando a Busca Binária:");
-        System.out.println("  > O número " + procurado + " está na posição: " + resulBB);
-        System.out.println("  > Foram feitas " + numComp + " comparações");
+        System.out.println("\n"
+                + "---------------------------------------\n"
+                + "Utilizando a Busca Binária:"
+                + "  > O número " + procurado + " está na posição: " + resulBB + "\n"
+                + "  > Foram feitas " + numComp + " comparações\n");
 
     }
 
     public void ResultadoBuscaSequencialO(int resulBSO, int procurado, int comp) {
-        System.out.println("---------------------------------------");
-        System.out.println("Utilizando a Busca Sequencial no vetor ordenado:");
-        System.out.println("  > O número " + procurado + " está na posição: " + resulBSO);
-        System.out.println("  > Foram feitas " + comp + " comparações");
+        System.out.println("\n"
+                + "---------------------------------------\n"
+                + "Utilizando a Busca Binária:"
+                + "  > O número " + procurado + " está na posição: " + resulBSO + "\n"
+                + "  > Foram feitas " + comp + " comparações\n");
+
     }
 
     public void ResultadoBuscaSequencialD(int resulBSD, int procurado, int comp) {
-        System.out.println("---------------------------------------");
-        System.out.println("Utilizando a Busca Sequencial no vetor desordenado:");
-        System.out.println("  > O número " + procurado + " está na posição: " + resulBSD);
-        System.out.println("  > Foram feitas " + comp + " comparações");
+        System.out.println("\n"
+                + "---------------------------------------\n"
+                + "Utilizando a Busca Binária:"
+                + "  > O número " + procurado + " está na posição: " + resulBSD + "\n"
+                + "  > Foram feitas " + comp + " comparações\n");
+
     }
 
     public void MenuOrdena() {
         System.out.println("Qual tipo de ordenação deseja realizar?\n"
-                + "1 - Bubble Sort\n2 - Merge Sort\n2 - Quick Sort\n2 - Heap Sort");
+                + "1 - Bubble Sort\n2 - Merge Sort\n3 - Quick Sort\n4 - Heap Sort");
 
     }
 
@@ -167,19 +168,19 @@ public class Menu {
     }
 
     public void opcaoMenuPrincipalInvalida() {
-        System.out.println("");
-        System.out.println("*******************************");
-        System.out.println("Opção Inválida, Tente Novamente");
-        System.out.println("*******************************");
-        System.out.println("");
+        System.out.println("\n"
+                + "*******************************\n"
+                + "Opção Inválida, Tente Novamente\n"
+                + "*******************************\n");
+        
     }
 
     public void vetorCriado() {
-        System.out.println("");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Vetor criado com sucesso");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("");
+        System.out.println("\n"
+                +"~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                +"Vetor criado com sucesso\n"
+                +"~~~~~~~~~~~~~~~~~~~~~~~~\n");
+       
     }
 
 }

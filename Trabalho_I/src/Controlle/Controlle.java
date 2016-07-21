@@ -9,7 +9,6 @@ import Sort.MergeSort;
 import Sort.QuickSort;
 import Util.GravarLog;
 import Util.Teste;
-import Vetor.ClonarVetor;
 import Vetor.Vetor;
 import View.Menu;
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class Controlle {
         Vetor CV = new Vetor();
         GravarLog log = new GravarLog();
         Media media = new Media();
-        ClonarVetor cVetor = new ClonarVetor();
+        
         Menu menu = new Menu();
         Teste teste = new Teste();
         menu.menuPrincipal();
@@ -177,21 +176,21 @@ public class Controlle {
                   if (vetor == null) {
                        menu.vetorNExistente();
                     } else {
-                        int vetor_aux[] = cVetor.clonarVetor(vetor);
+                        int vetor_aux[] = CV.clonarVetor(vetor);
                         media.mediaGeral(vetor_aux);
                     }
                     break;
             case 6:
                 menu.creditos();
                 break;
-//            case 10:
-//                if (vetor == null) {
-//                    menu.vetorNExistente();
-//                } else {
-//                    int vetor_aux[] = cVetor.clonarVetor(vetor);
-//                    media.mediaGeral(vetor_aux);
-//                }
-//                break;
+            case 7:
+                if (vetor == null) {
+                    menu.vetorNExistente();
+                } else {
+                    int vetor_aux[] = CV.clonarVetor(vetor);
+                    media.mediaGeral(vetor_aux);
+                }
+                break;
             case 0:
                 System.exit(0);
                 break;

@@ -24,26 +24,13 @@ public class Vetor {
             vetor[i] = gerador.nextInt(1001);
         }
         return vetor;
-
-        //
-//        int n = 0;
-//
-//        switch (tamanho) {
-//            case 1:
-//                n = 4;
-//                break;
-//            case 2:
-//                n = 8;
-//                break;
-//            case 3:
-//                n = 20;
-//                break;
-//            case 0:
-//                return null;
-//            default:
-//                System.out.println("Opção Inválida");
-//                break;
-//        }
     }
 
+    public int[] clonarVetor(int vetor_original[]) {
+        int novo_vetor[] = new int[vetor_original.length];
+        for (int i = 0; i < vetor_original.length; i++) {
+            novo_vetor[i] = vetor_original[i];
+        }
+        return novo_vetor;
+    }
 }
