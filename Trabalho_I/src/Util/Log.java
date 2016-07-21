@@ -31,6 +31,15 @@ public class Log extends Menu {
     static String dir;
 
     public void ZerarArquivos() {
+
+        File arq = new File(System.getProperty("user.home") + "/log.txt");
+        if (arq.exists()) {
+            arq.delete();
+            logApagado();
+        } else {
+            logErro();
+        }
+
     }
 
     public void escreverNoLog(String log) throws IOException {
@@ -55,19 +64,16 @@ public class Log extends Menu {
 
     public void lerLog() throws FileNotFoundException, IOException {
         {
-            try {
-                File arq = new File(System.getProperty("user.home"));
-                if (arq.exists()) {
-                    try (BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/log.txt"))) {
-                        while (br.ready()) {
-                            String linha = br.readLine();
-                            System.out.println(linha);
-                        }
+            File arq = new File(System.getProperty("user.home") + "/log.txt");
+            if (arq.exists()) {
+                try (BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/log.txt"))) {
+                    while (br.ready()) {
+                        String linha = br.readLine();
+                        System.out.println(linha);
                     }
 
                 }
-            } catch (Exception e) {
-
+            } else {
                 logErro();
             }
 

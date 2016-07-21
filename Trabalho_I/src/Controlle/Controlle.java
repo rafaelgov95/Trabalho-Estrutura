@@ -183,6 +183,9 @@ public class Controlle {
             case 6:
                   log.lerLog();
             case 7:
+                  log.ZerarArquivos();
+           
+            case 8:
                 menu.creditos();
                 break;
            
