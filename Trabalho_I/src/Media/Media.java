@@ -9,10 +9,11 @@ import Sort.BubbleSort;
 import Sort.HeapSort;
 import Sort.MergeSort;
 import Sort.QuickSort;
-import Util.GravarLog;
+import Util.Log;
 import Vetor.Vetor;
 import View.Menu;
 import com.sun.xml.internal.bind.v2.model.annotation.Quick;
+import java.io.IOException;
 
 /**
  *
@@ -20,14 +21,14 @@ import com.sun.xml.internal.bind.v2.model.annotation.Quick;
  */
 public class Media extends Vetor {
 
-    GravarLog gLog = new GravarLog();
+    Log gLog = new Log();
     Menu menu = new Menu();
     BubbleSort bubble = new BubbleSort();
     MergeSort merge = new MergeSort();
     QuickSort quick = new QuickSort();
     HeapSort heap = new HeapSort();
 
-    public void mediaGeral(int vetor_pronto[]) {
+    public void mediaGeral(int vetor_pronto[]) throws IOException {
         int[] vetorParaOrdenar;
         for (int i = 0; i < 30; i++) {
             vetorParaOrdenar = clonarVetor(vetor_pronto);
@@ -40,6 +41,7 @@ public class Media extends Vetor {
         }
 
         Menu.impresaoMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao);
+        gLog.escreverNoLog(Menu.gravarMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao));
     }
 
 }

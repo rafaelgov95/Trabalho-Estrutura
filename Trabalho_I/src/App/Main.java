@@ -11,7 +11,7 @@ import Busca.BuscaSequencial;
 import Controlle.Controlle;
 import Sort.BubbleSort;
 import Sort.MergeSort;
-import Util.GravarLog;
+import Util.Log;
 import Util.Teste;
 import Vetor.Vetor;
 import View.Menu;

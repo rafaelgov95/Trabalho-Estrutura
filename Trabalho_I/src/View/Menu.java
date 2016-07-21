@@ -17,14 +17,15 @@ public class Menu {
                 + ">  Trabalho - Estrutura de Dados I  <\n"
                 + "¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n"
                 + "-------------------------------------\n"
-                + "Digite a opção Desejada\n"
+                 + "Digite a opção Desejada\n"
                 + "1 - Criar novo vetor\n"
                 + "2 - Imprimir meu vetor\n"
                 + "3 - Buscar um número em meu vetor\n"
                 + "4 - Ordenar meu vetor\n"
-                + "5 - Imprimir Média de Permutação\n"
-                + "10 - Imprimir Media de Permutas\n"
-                + "0 - Sair");
+                + "5 - Imprimir Media de Permutas\n"
+                + "6 - Imprimir LOG\n"
+                + "7 - Créditos\n"
+                + "0 - Sair\n");
     }
 
     public void VetorExistent() {
@@ -202,6 +203,12 @@ public class Menu {
                 + "Vetor criado com sucesso\n"
                 + "~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
+    }
+    public void logSalvoInforma(String dir){
+    System.out.println("Log salvo em " +dir);
+    }
+    public void logErro(){
+    System.out.println("Log nao iniciado");
     }
 
 }

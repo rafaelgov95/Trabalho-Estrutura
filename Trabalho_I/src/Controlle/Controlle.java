@@ -7,7 +7,7 @@ import Sort.BubbleSort;
 import Sort.HeapSort;
 import Sort.MergeSort;
 import Sort.QuickSort;
-import Util.GravarLog;
+import Util.Log;
 import Util.Teste;
 import Vetor.Vetor;
 import View.Menu;
@@ -31,7 +31,7 @@ public class Controlle {
 
     public void App() throws IOException {
         Vetor CV = new Vetor();
-        GravarLog log = new GravarLog();
+        Log log = new Log();
         Media media = new Media();
         
         Menu menu = new Menu();
@@ -181,16 +181,11 @@ public class Controlle {
                     }
                     break;
             case 6:
+                  log.lerLog();
+            case 7:
                 menu.creditos();
                 break;
-            case 7:
-                if (vetor == null) {
-                    menu.vetorNExistente();
-                } else {
-                    int vetor_aux[] = CV.clonarVetor(vetor);
-                    media.mediaGeral(vetor_aux);
-                }
-                break;
+           
             case 0:
                 System.exit(0);
                 break;
