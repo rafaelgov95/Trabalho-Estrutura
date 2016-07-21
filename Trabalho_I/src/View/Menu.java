@@ -162,16 +162,16 @@ public class Menu {
 
     public static String gravarMedia(int bubblepermuta, int bubblecompara, int mergepermuta, int mergecompara, int heappermuta, int heapcompara, int quickpermuta, int quickcompara) {
         return "---------------------Resultado Media de 30 Comparações e Permutações-----------------------------"
-                + "\nMedia Utilizando BuubleSort"
+                + "\nMedia Utilizando BuubleSort\n"
                 + "A média de permutação : " + (bubblepermuta / 30) + " vezes!\n"
                 + "A média de comparação : " + (bubblecompara / 30) + " vezes!\n"
-                + "\nMedia Utilizando Merge"
+                + "\nMedia Utilizando Merge\n"
                 + "A média de permutação : " + (mergepermuta / 30) + " vezes!\n"
                 + "A média de comparação : " + (mergecompara / 30) + " vezes!\n"
-                + "\nMedia Utilizando Quick"
+                + "\nMedia Utilizando Quick\n"
                 + "A média de permutação : " + (quickpermuta / 30) + " vezes!\n"
                 + "A média de comparação : " + (quickcompara / 30) + " vezes!\n"
-                + "\nMedia Utilizando Heap"
+                + "\nMedia Utilizando Heap\n"
                 + "A média de permutação : " + (heappermuta / 30) + " vezes!\n"
                 + "A média de comparação : " + (heapcompara / 30) + " vezes!\n"
                 + "\"--------------------------------------------->FIM<------------------------------------------\"";
