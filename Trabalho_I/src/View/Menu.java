@@ -56,7 +56,7 @@ public class Menu {
         System.out.println("Escolha o tipo de busca:\n"
                 + "1 - Busca Binaria\n"
                 + "2 - Busca Sequencial em vetor ordenado\n"
-                + "2 - Busca Sequencial em vetor desordenado\n"
+                + "3 - Busca Sequencial em vetor desordenado\n"
                 + "0 - Cancelar");
 
     }
@@ -81,30 +81,45 @@ public class Menu {
                 + "*******************************************");
     }
 
-    public void ResultadoBuscaBinaria(int resulBB, int procurado, int numComp) {
-        System.out.println("\n"
+    public void imprimirBuscaBinaria(int resulBB, int procurado, int numComp) {
+        System.out.println(gravarBuscaBinaria(resulBB, procurado, numComp));
+
+    }
+
+    public void imprimirBuscaSequencialO(int resulBSO, int procurado, int comp) {
+        System.out.println(gravarBuscaSequencialD(resulBSO, procurado, comp));
+
+    }
+
+    public void imprimirBuscaSequencialD(int resulBSD, int procurado, int comp) {
+        System.out.println(gravarBuscaSequencialD(resulBSD, procurado, comp));
+
+    }
+
+    public String gravarBuscaBinaria(int resulBB, int procurado, int numComp) {
+        return "\n"
                 + "---------------------------------------\n"
                 + "Utilizando a Busca Binária:"
                 + "  > O número " + procurado + " está na posição: " + resulBB + "\n"
-                + "  > Foram feitas " + numComp + " comparações\n");
+                + "  > Foram feitas " + numComp + " comparações\n";
 
     }
 
-    public void ResultadoBuscaSequencialO(int resulBSO, int procurado, int comp) {
-        System.out.println("\n"
+    public String gravarBuscaSequencialO(int resulBSO, int procurado, int comp) {
+        return "\n"
                 + "---------------------------------------\n"
                 + "Utilizando a Busca Binária:"
                 + "  > O número " + procurado + " está na posição: " + resulBSO + "\n"
-                + "  > Foram feitas " + comp + " comparações\n");
+                + "  > Foram feitas " + comp + " comparações\n";
 
     }
 
-    public void ResultadoBuscaSequencialD(int resulBSD, int procurado, int comp) {
-        System.out.println("\n"
+    public String gravarBuscaSequencialD(int resulBSD, int procurado, int comp) {
+        return "\n"
                 + "---------------------------------------\n"
                 + "Utilizando a Busca Binária:"
                 + "  > O número " + procurado + " está na posição: " + resulBSD + "\n"
-                + "  > Foram feitas " + comp + " comparações\n");
+                + "  > Foram feitas " + comp + " comparações\n";
 
     }
 
@@ -218,5 +233,4 @@ public class Menu {
         System.out.println("Log Apagado Com sucesso");
     }
 
-    
 }

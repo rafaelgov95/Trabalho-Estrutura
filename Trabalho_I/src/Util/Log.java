@@ -26,7 +26,7 @@ import java.util.Date;
  * @author rafael
  */
 public class Log extends Menu {
-
+     
     static int cont;
     static String dir;
 

@@ -33,7 +33,7 @@ public class Controlle {
         Vetor CV = new Vetor();
         Log log = new Log();
         Media media = new Media();
-        
+
         Menu menu = new Menu();
         Teste teste = new Teste();
         menu.menuPrincipal();
@@ -102,7 +102,9 @@ public class Controlle {
                             if (resulBB == -1) {
                                 menu.numeroProcuradoNEncontrado();
                             } else {
-                                menu.ResultadoBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao);
+                                menu.imprimirBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao);
+                                log.escreverNoLog(menu.gravarBuscaBinaria(resulBB, procurado, opcao));
+                                buscaBinaria.comparacao = 0;
                             }
                             break;
                         case 2:
@@ -111,7 +113,8 @@ public class Controlle {
                             if (resulBSO == -1) {
                                 menu.numeroProcuradoNEncontrado();
                             } else {
-                                menu.ResultadoBuscaSequencialO(resulBSO, procurado, buscaSequencial.comparacao);
+                                menu.imprimirBuscaSequencialO(resulBSO, procurado, buscaSequencial.comparacao);
+                                log.escreverNoLog(menu.gravarBuscaSequencialO(resulBSO, procurado, opcao));
                                 buscaSequencial.comparacao = 0;
                             }
                             break;
@@ -120,7 +123,8 @@ public class Controlle {
                             if (resulBSD == -1) {
                                 menu.numeroProcuradoNEncontrado();
                             } else {
-                                menu.ResultadoBuscaSequencialO(resulBSD, procurado, buscaSequencial.comparacao);
+                                menu.imprimirBuscaSequencialO(resulBSD, procurado, buscaSequencial.comparacao);
+                                log.escreverNoLog(menu.gravarBuscaSequencialD(resulBSD, procurado, opcao));
                                 buscaSequencial.comparacao = 0;
                             }
                             break;
@@ -136,34 +140,34 @@ public class Controlle {
                     menu.MenuOrdena();
                     int ord = Integer.parseInt(ler.nextLine());
                     switch (ord) {
-                       case 1:
+                        case 1:
                             Teste testeBubble = new Teste();
                             BubbleSort bubbleSort = new BubbleSort();
                             double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
                             vetor = testeBubble.vet;
-                            Menu.impresaoBubble(tempoDeExecucaoBubble,bubbleSort.comparacao,bubbleSort.permutacao);
-                            log.escreverNoLog(Menu.gravarBubble(tempoDeExecucaoBubble,bubbleSort.comparacao,bubbleSort.permutacao));
+                            Menu.impresaoBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao);
+                            log.escreverNoLog(Menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao));
                             break;
                         case 2:
                             MergeSort mergeSort = new MergeSort();
                             double tempoDeExecucaoMerge = teste.getRuntime(vetor, mergeSort);
                             vetor = teste.vet;
-                            Menu.impresaoMerge(tempoDeExecucaoMerge,mergeSort.comparacao,mergeSort.permutacao);
-                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoMerge,mergeSort.comparacao,mergeSort.comparacao));
+                            Menu.impresaoMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.permutacao);
+                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.comparacao));
                             break;
                         case 3:
                             QuickSort quickSort = new QuickSort();
                             double tempoDeExecucaoQuick = teste.getRuntime(vetor, quickSort);
                             vetor = teste.vet;
-                            Menu.impresaoMerge(tempoDeExecucaoQuick,quickSort.comparacao,quickSort.permutacao);
-                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoQuick,quickSort.comparacao,quickSort.comparacao));
+                            Menu.impresaoMerge(tempoDeExecucaoQuick, quickSort.comparacao, quickSort.permutacao);
+                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoQuick, quickSort.comparacao, quickSort.comparacao));
                             break;
                         case 4:
                             HeapSort heapSort = new HeapSort();
                             double tempoDeExecucaoHeap = teste.getRuntime(vetor, heapSort);
                             vetor = teste.vet;
-                            Menu.impresaoHeap(tempoDeExecucaoHeap,heapSort.comparacao,heapSort.permutacao);
-                            log.escreverNoLog(Menu.gravarHeap(tempoDeExecucaoHeap,heapSort.comparacao,heapSort.permutacao));
+                            Menu.impresaoHeap(tempoDeExecucaoHeap, heapSort.comparacao, heapSort.permutacao);
+                            log.escreverNoLog(Menu.gravarHeap(tempoDeExecucaoHeap, heapSort.comparacao, heapSort.permutacao));
                             break;
                         case 0:
                             break;
@@ -173,22 +177,22 @@ public class Controlle {
                 }
                 break;
             case 5:
-                  if (vetor == null) {
-                       menu.vetorNExistente();
-                    } else {
-                        int vetor_aux[] = CV.clonarVetor(vetor);
-                        media.mediaGeral(vetor_aux);
-                    }
-                    break;
+                if (vetor == null) {
+                    menu.vetorNExistente();
+                } else {
+                    int vetor_aux[] = CV.clonarVetor(vetor);
+                    media.mediaGeral(vetor_aux);
+                }
+                break;
             case 6:
-                  log.lerLog();
+                log.lerLog();
             case 7:
-                  log.ZerarArquivos();
-           
+                log.ZerarArquivos();
+
             case 8:
                 menu.creditos();
                 break;
-           
+
             case 0:
                 System.exit(0);
                 break;
