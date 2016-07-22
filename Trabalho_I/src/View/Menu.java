@@ -5,6 +5,8 @@
  */
 package View;
 
+import Util.Data;
+
 /**
  *
  * @author rafael

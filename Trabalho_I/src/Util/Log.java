@@ -22,6 +22,7 @@ import java.util.Date;
  */
 public class Log extends Menu {
 
+    Data data = new Data();
     static int cont;
     static String dir;
 
@@ -54,13 +55,13 @@ public class Log extends Menu {
         logSalvoInforma(dir);
         if (arq.exists()) {
             try (BufferedWriter escritor = new BufferedWriter(new FileWriter(dir, true))) {
-                escritor.append("Log de Numero: " + (cont++) + "\n-------------------------------------------------------------------------------------------------------\n" + "Criado Em: " + (new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date())) + "\n" + log + "\n-----------------------------------------------------\n");
+                escritor.append("Log de Numero: " + (cont++) + "\n-------------------------------------------------------------------------------------------------------\n" + "Criado Em: " + data.dataagora()+ "\n" + log + "\n-------------------------------------------------------------------------------------------------------\n");
                 escritor.newLine();
             }
         } else {
 
             try (BufferedWriter escritor = new BufferedWriter(new FileWriter(dir))) {
-                escritor.append("Log de Numero: " + (cont++) + "\n-------------------------------------------------------------------------------------------------------\n" + "Criado Em: " + (new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date())) + "\n" + log + "\n-------------------------------------------------------------------------------------------------------\n");
+                escritor.append("Log de Numero: " + (cont++) + "\n-------------------------------------------------------------------------------------------------------\n" + "Criado Em: " + data.dataagora()+ "\n" + log + "\n-------------------------------------------------------------------------------------------------------\n");
                 escritor.newLine();
             }
         }
