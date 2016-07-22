@@ -14,6 +14,13 @@ import Vetor.Vetor;
  */
 public class MergeSort extends Vetor implements InterfaceTeste<int[]> {
 
+    /**
+     * Método de ordenação Merge Sort, recebe um vetor como parâmetro e o
+     * retorna totalmente ordenado.
+     *
+     * @param arr Vetor a ser ordenado
+     * @return Vetor ordenado no pior caso em (Theta (nlog 2n))
+     */
     @Override
     public int[] sort(int[] arr) {
         int p = 0;

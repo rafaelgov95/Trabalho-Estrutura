@@ -18,6 +18,15 @@ public class Teste {
     public int[] vet;
     long tempInicial;
 
+    /**
+     * Método que roda Algum metodo T que recebe um Vetor T assim utilizando o metodo para fazer a ordenação e returna um tempo de gasto. 
+     *
+     * @param <T>    Valor Generico 
+     * @param valor  Vetor
+     * @param metodo  Qualquer Metodo Que use um vetor acima
+     * @return Double
+     * 
+     */
     public <T> double getRuntime(T valor, InterfaceTeste<T> metodo) {
         this.tempInicial = System.nanoTime();
         this.vet = metodo.sort(valor);

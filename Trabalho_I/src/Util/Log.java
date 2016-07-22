@@ -13,11 +13,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -30,6 +25,10 @@ public class Log extends Menu {
     static int cont;
     static String dir;
 
+    /**
+     * Método Limpa Arquivo de Log
+     *
+     */
     public void ZerarArquivos() {
 
         File arq = new File(System.getProperty("user.home") + "/log.txt");
@@ -42,6 +41,11 @@ public class Log extends Menu {
 
     }
 
+    /**
+     * Método Escreve no log
+     *
+     * @param log String para ser Salva
+     */
     public void escreverNoLog(String log) throws IOException {
         cont++;
         dir = System.getProperty("user.home");
@@ -62,6 +66,9 @@ public class Log extends Menu {
         }
     }
 
+    /**
+     * Método Ler no Arquivo de Log.
+     */
     public void lerLog() throws FileNotFoundException, IOException {
         {
             File arq = new File(System.getProperty("user.home") + "/log.txt");

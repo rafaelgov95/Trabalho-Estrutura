@@ -28,6 +28,12 @@ public class Media extends Vetor {
     QuickSort quick = new QuickSort();
     HeapSort heap = new HeapSort();
 
+    /**
+     * Método que roda 30 vezes todos os sorts, e calcúla a média de permutações
+     * e comparações realizadas
+     *
+     * @param vetor_pronto
+     */
     public void mediaGeral(int vetor_pronto[]) throws IOException {
         int[] vetorParaOrdenar;
         for (int i = 0; i < 30; i++) {
@@ -40,8 +46,8 @@ public class Media extends Vetor {
             quick.sort(vetor_pronto);
         }
 
-        Menu.impresaoMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao);
-        gLog.escreverNoLog(Menu.gravarMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao));
+        System.out.println(menu.gravarMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao));
+        gLog.escreverNoLog(menu.gravarMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao));
     }
 
 }

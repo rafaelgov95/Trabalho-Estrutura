@@ -7,7 +7,13 @@ package Sort;
 
 public class MetodoTrocar {
     
-    //Método usado para as trocas em todos os Sorts
+   /**
+     * Método de para Troca de Valores.
+     * @param vet Vetor onde Sera feita a troca de valores.
+     * @param a valor a
+     * @param b valor b
+     * @return return Vetor
+     */
     public int[] MetodoTrocar(int vet[], int a, int b) {
         
         int aux = vet[a];

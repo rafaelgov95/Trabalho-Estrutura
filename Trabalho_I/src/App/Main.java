@@ -5,19 +5,9 @@
  */
 package App;
 
-import Media.Media;
-import Busca.BuscaBinaria;
-import Busca.BuscaSequencial;
 import Controlle.Controlle;
-import Sort.BubbleSort;
-import Sort.MergeSort;
-import Util.Log;
-import Util.Teste;
-import Vetor.Vetor;
-import View.Menu;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+
 
 /**
  *

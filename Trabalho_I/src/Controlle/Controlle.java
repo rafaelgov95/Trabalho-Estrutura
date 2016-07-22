@@ -25,10 +25,16 @@ import java.util.Scanner;
  */
 public class Controlle {
 
-    static int vetor[];
+    static int vetor[] = {2, 3, 4, 5, 6};
     static int vetor_desordenado[];
     static Scanner ler = new Scanner(System.in);
 
+    /**
+     * Método de controle de todo o algoritmo, aqui são lidas as entradas do
+     * usuário, e chamadas todas as outras funções
+     *
+     * @throws IOException
+     */
     public void App() throws IOException {
         Vetor CV = new Vetor();
         Log log = new Log();
@@ -37,10 +43,10 @@ public class Controlle {
         Menu menu = new Menu();
         Teste teste = new Teste();
         menu.menuPrincipal();
-        int opcao = Integer.parseInt(ler.nextLine());
+        String opcao = ler.nextLine();
 
         switch (opcao) {
-            case 1:
+            case "1":
                 if (vetor != null) {
                     menu.VetorExistent();
                     int s_n = Integer.parseInt(ler.nextLine());
@@ -49,26 +55,28 @@ public class Controlle {
                     }
                 }
                 menu.tamanhoVetor();
-                int tamanho = Integer.parseInt(ler.nextLine());
-                switch (tamanho) {
-                    case 1:
+                String Op_tamanho = ler.nextLine();
+                int tamanho = 0;
+                switch (Op_tamanho) {
+                    case "1":
                         tamanho = 512;
                         break;
-                    case 2:
+                    case "2":
                         tamanho = 1024;
                         break;
-                    case 3:
+                    case "3":
                         tamanho = 4096;
                         break;
-                    case 4:
+                    case "4":
                         tamanho = Integer.parseInt(ler.nextLine());
                         break;
-                    case 0:
+                    case "0":
+                        menu.opcaoMenuPrincipalInvalida();
                         break;
                 }
                 vetor = CV.criarNovoVetor(tamanho);
                 break;
-            case 2:
+            case "2":
                 if (vetor == null) {
                     menu.vetorNExistente();
                 } else {
@@ -83,123 +91,107 @@ public class Controlle {
                     System.out.print("|\n");
                 }
                 break;
-            case 3:
+            case "3":
                 if (vetor == null) {
                     menu.vetorNExistente();
-                } else {
-
+                } else if (CV.vetorOrdenado(vetor)) {
                     Busca.BuscaBinaria buscaBinaria = new BuscaBinaria();
-                    Busca.BuscaSequencial buscaSequencial = new BuscaSequencial();
+                    menu.BuscaBinariaSelect();
                     menu.numeroProcurado();
                     int procurado = Integer.parseInt(ler.nextLine());
-                    menu.menuEscolhaBusca();
-                    int escolhaBusca = Integer.parseInt(ler.nextLine());
-                    switch (escolhaBusca) {
-                        case 1:
-                            menu.avisoBusca();
-                            int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
-
-                            if (resulBB == -1) {
-                                menu.numeroProcuradoNEncontrado();
-                            } else {
-                                menu.imprimirBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao);
-                                log.escreverNoLog(menu.gravarBuscaBinaria(resulBB, procurado, opcao));
-                                buscaBinaria.comparacao = 0;
-                            }
-                            break;
-                        case 2:
-                            int resulBSO = buscaSequencial.BuscaSeq(vetor, procurado);
-
-                            if (resulBSO == -1) {
-                                menu.numeroProcuradoNEncontrado();
-                            } else {
-                                menu.imprimirBuscaSequencialO(resulBSO, procurado, buscaSequencial.comparacao);
-                                log.escreverNoLog(menu.gravarBuscaSequencialO(resulBSO, procurado, opcao));
-                                buscaSequencial.comparacao = 0;
-                            }
-                            break;
-                        case 3:
-                            int resulBSD = buscaSequencial.BuscaSeq(vetor_desordenado, procurado);
-                            if (resulBSD == -1) {
-                                menu.numeroProcuradoNEncontrado();
-                            } else {
-                                menu.imprimirBuscaSequencialO(resulBSD, procurado, buscaSequencial.comparacao);
-                                log.escreverNoLog(menu.gravarBuscaSequencialD(resulBSD, procurado, opcao));
-                                buscaSequencial.comparacao = 0;
-                            }
-                            break;
-                        default:
-                            throw new AssertionError();
+                    int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
+                    if (resulBB == -1) {
+                        menu.numeroProcuradoNEncontrado();
+                    } else {
+                        System.out.println(menu.gravarBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao));
+                        log.escreverNoLog(menu.gravarBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao));
+                        buscaBinaria.comparacao = 0;
                     }
+
+                } else {
+                    Busca.BuscaSequencial buscaSequencial = new BuscaSequencial();
+                    menu.BuscaSequencialSelect();
+                    menu.numeroProcurado();
+                    int procurado = Integer.parseInt(ler.nextLine());
+                    int resulBS = buscaSequencial.BuscaSeq(vetor, procurado);
+                    if (resulBS == -1) {
+                        menu.numeroProcuradoNEncontrado();
+                    } else {
+                        System.out.println(menu.gravarBuscaSequencialD(resulBS, procurado, buscaSequencial.comparacao));
+                        log.escreverNoLog(menu.gravarBuscaBinaria(resulBS, procurado, buscaSequencial.comparacao));
+                        buscaSequencial.comparacao = 0;
+                    }
+
                 }
                 break;
-            case 4:
+            case "4":
                 if (vetor == null) {
                     menu.vetorNExistente();
                 } else {
                     menu.MenuOrdena();
-                    int ord = Integer.parseInt(ler.nextLine());
+                    String ord = ler.nextLine();
                     switch (ord) {
-                        case 1:
+                        case "1":
                             Teste testeBubble = new Teste();
                             BubbleSort bubbleSort = new BubbleSort();
                             double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
-                            vetor = testeBubble.vet;
-                            Menu.impresaoBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao);
-                            log.escreverNoLog(Menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao));
+                            vetor = CV.clonarVetor(testeBubble.vet);
+                            menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao);
+                            log.escreverNoLog(menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao));
                             break;
-                        case 2:
+                        case "2":
                             MergeSort mergeSort = new MergeSort();
                             double tempoDeExecucaoMerge = teste.getRuntime(vetor, mergeSort);
-                            vetor = teste.vet;
-                            Menu.impresaoMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.permutacao);
-                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.comparacao));
+                            vetor = CV.clonarVetor(teste.vet);
+                            ;
+                            System.out.println(menu.gravarMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.permutacao));
+                            log.escreverNoLog(menu.gravarMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.comparacao));
                             break;
-                        case 3:
+                        case "3":
                             QuickSort quickSort = new QuickSort();
                             double tempoDeExecucaoQuick = teste.getRuntime(vetor, quickSort);
-                            vetor = teste.vet;
-                            Menu.impresaoMerge(tempoDeExecucaoQuick, quickSort.comparacao, quickSort.permutacao);
-                            log.escreverNoLog(Menu.gravarMerge(tempoDeExecucaoQuick, quickSort.comparacao, quickSort.comparacao));
+                            vetor = CV.clonarVetor(teste.vet);
+                            System.out.println(menu.gravarQuick(tempoDeExecucaoQuick, quickSort.comparacao, quickSort.permutacao));
+                            log.escreverNoLog(menu.gravarQuick(tempoDeExecucaoQuick, quickSort.comparacao, quickSort.comparacao));
                             break;
-                        case 4:
+                        case "4":
                             HeapSort heapSort = new HeapSort();
                             double tempoDeExecucaoHeap = teste.getRuntime(vetor, heapSort);
                             vetor = teste.vet;
-                            Menu.impresaoHeap(tempoDeExecucaoHeap, heapSort.comparacao, heapSort.permutacao);
-                            log.escreverNoLog(Menu.gravarHeap(tempoDeExecucaoHeap, heapSort.comparacao, heapSort.permutacao));
+                            System.out.println(menu.gravarHeap(tempoDeExecucaoHeap, heapSort.comparacao, heapSort.permutacao));
+                            log.escreverNoLog(menu.gravarHeap(tempoDeExecucaoHeap, heapSort.comparacao, heapSort.permutacao));
                             break;
-                        case 0:
+                        case "0":
                             break;
                         default:
+                            menu.opcaoMenuPrincipalInvalida();
                             break;
                     }
                 }
                 break;
-            case 5:
+            case "5":
                 if (vetor == null) {
                     menu.vetorNExistente();
                 } else {
-                    int vetor_aux[] =(vetor);
+                    int vetor_aux[] = (vetor);
                     media.mediaGeral(vetor_aux);
                 }
                 break;
-            case 6:
+            case "6":
                 log.lerLog();
                 break;
-            case 7:
+            case "7":
                 log.ZerarArquivos();
                 break;
-            case 8:
+            case "8":
                 menu.creditos();
                 break;
-
-            case 0:
+            case "0":
                 System.exit(0);
                 break;
-
             default:
                 menu.opcaoMenuPrincipalInvalida();
+                App();
                 break;
         }
     }

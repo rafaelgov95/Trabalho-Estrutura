@@ -14,6 +14,15 @@ import Vetor.Vetor;
  */
 public class QuickSort extends Vetor implements InterfaceTeste<int[]> {
 
+    /**
+     * Método de ordenação Quick Sort, recebe um vetor como parâmetro e o
+     * retorna totalmente ordenado.
+     *
+     * @param arr Vetor a ser ordenado
+     * @return Vetor ordenado no pior caso em (O(n²))
+     *
+     */
+    @Override
     public int[] sort(int[] arr) {
         int p = 0;
         int r = arr.length - 1;
