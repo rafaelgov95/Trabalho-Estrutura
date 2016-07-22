@@ -26,7 +26,7 @@ import java.util.Date;
  * @author rafael
  */
 public class Log extends Menu {
-     
+
     static int cont;
     static String dir;
 
@@ -50,13 +50,13 @@ public class Log extends Menu {
         logSalvoInforma(dir);
         if (arq.exists()) {
             try (BufferedWriter escritor = new BufferedWriter(new FileWriter(dir, true))) {
-                escritor.append(String.valueOf("\"------------------------------------------------------\nLog de Numero: " + (cont++) + "\n" + "Criado Em: " + (new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date())) + "\n\n" + log) + "-----------------------------------------------------\n");
+                escritor.append("Log de Numero: " + (cont++) + "\n------------------------------------------------------\n" + "Criado Em: " + (new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date())) + "\n" + log + "\n-----------------------------------------------------\n");
                 escritor.newLine();
             }
         } else {
 
             try (BufferedWriter escritor = new BufferedWriter(new FileWriter(dir))) {
-                escritor.append(String.valueOf("\"------------------------------------------------------\nLog de Numero: " + (cont++) + "\n" + "Criado Em: " + (new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date())) + "\n\n" + log) + "-----------------------------------------------------\n");
+                escritor.append("Log de Numero: " + (cont++) + "\n------------------------------------------------------\n" + "Criado Em: " + (new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date())) + "\n" + log + "\n-----------------------------------------------------\n");
                 escritor.newLine();
             }
         }
@@ -67,10 +67,14 @@ public class Log extends Menu {
             File arq = new File(System.getProperty("user.home") + "/log.txt");
             if (arq.exists()) {
                 try (BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.home") + "/log.txt"))) {
+                    logInicia();
+
                     while (br.ready()) {
                         String linha = br.readLine();
                         System.out.println(linha);
+
                     }
+                    logFim();
 
                 }
             } else {

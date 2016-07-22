@@ -180,7 +180,7 @@ public class Controlle {
                 if (vetor == null) {
                     menu.vetorNExistente();
                 } else {
-                    int vetor_aux[] = CV.clonarVetor(vetor);
+                    int vetor_aux[] =(vetor);
                     media.mediaGeral(vetor_aux);
                 }
                 break;

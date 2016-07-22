@@ -97,27 +97,21 @@ public class Menu {
     }
 
     public String gravarBuscaBinaria(int resulBB, int procurado, int numComp) {
-        return "\n"
-                + "---------------------------------------\n"
-                + "Utilizando a Busca Binária:"
+        return "Utilizando a Busca Binária:\n"
                 + "  > O número " + procurado + " está na posição: " + resulBB + "\n"
                 + "  > Foram feitas " + numComp + " comparações\n";
 
     }
 
     public String gravarBuscaSequencialO(int resulBSO, int procurado, int comp) {
-        return "\n"
-                + "---------------------------------------\n"
-                + "Utilizando a Busca Binária:"
+        return "Utilizando a Busca Binária:\n"
                 + "  > O número " + procurado + " está na posição: " + resulBSO + "\n"
                 + "  > Foram feitas " + comp + " comparações\n";
 
     }
 
     public String gravarBuscaSequencialD(int resulBSD, int procurado, int comp) {
-        return "\n"
-                + "---------------------------------------\n"
-                + "Utilizando a Busca Binária:"
+        return "Utilizando a Busca Binária:\n"
                 + "  > O número " + procurado + " está na posição: " + resulBSD + "\n"
                 + "  > Foram feitas " + comp + " comparações\n";
 
@@ -199,7 +193,7 @@ public class Menu {
     }
 
     public static String gravarHeap(double temp, int comp, int perm) {
-        return "Ordenação utlizando Heap Sort\n" + "Seu vetor foi ordenado em: " +String.format("%.5f", temp) + " Segundos!\n"
+        return "Ordenação utlizando Heap Sort\n" + "Seu vetor foi ordenado em: " + String.format("%.5f", temp) + " Segundos!\n"
                 + "   > Foram feitas " + comp + " comparações\n"
                 + "   > E realizadas " + perm + " permutações\n";
 
@@ -231,6 +225,14 @@ public class Menu {
 
     public void logApagado() {
         System.out.println("Log Apagado Com sucesso");
+    }
+
+    public void logInicia() {
+        System.out.println("########################################INICIO LOG######################\n");
+    }
+
+    public void logFim() {
+        System.out.println("########################################FIM LOG##########################\n");
     }
 
 }

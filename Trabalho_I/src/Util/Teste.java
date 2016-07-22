@@ -22,6 +22,7 @@ public class Teste {
         this.tempInicial = System.nanoTime();
         this.vet = metodo.sort(valor);
         double tempo = System.nanoTime() - tempInicial;
+//        TimeUnit.SECONDS.convert(, TimeUnit.NANOSECONDS)
         return (double)(tempo/ 1000000000.0);
         
     }
