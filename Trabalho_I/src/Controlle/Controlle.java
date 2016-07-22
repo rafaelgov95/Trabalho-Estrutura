@@ -8,7 +8,7 @@ import Sort.HeapSort;
 import Sort.MergeSort;
 import Sort.QuickSort;
 import Util.Log;
-import Util.Teste;
+import Util.TesteSort;
 import Vetor.Vetor;
 import View.Menu;
 import java.io.IOException;
@@ -25,7 +25,8 @@ import java.util.Scanner;
  */
 public class Controlle {
 
-    static int vetor[] = {2, 3, 4, 5, 6};
+    static int vetor[];
+//            = {2, 3, 4, 5, 6};
     static int vetor_desordenado[];
     static Scanner ler = new Scanner(System.in);
 
@@ -41,7 +42,9 @@ public class Controlle {
         Media media = new Media();
 
         Menu menu = new Menu();
-        Teste teste = new Teste();
+        TesteSort teste = new TesteSort();
+       
+   
         menu.menuPrincipal();
         String opcao = ler.nextLine();
 
@@ -99,12 +102,14 @@ public class Controlle {
                     menu.BuscaBinariaSelect();
                     menu.numeroProcurado();
                     int procurado = Integer.parseInt(ler.nextLine());
-                    int resulBB = buscaBinaria.buscaBinariaRecursiva(vetor, procurado, 0, vetor.length - 1);
+                    double tempoB=buscaBinaria.getRuntime(vetor, procurado);
+                    int resulBB = buscaBinaria.busca(vetor, procurado, 0, vetor.length - 1);
+                    
                     if (resulBB == -1) {
                         menu.numeroProcuradoNEncontrado();
                     } else {
-                        System.out.println(menu.gravarBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao));
-                        log.escreverNoLog(menu.gravarBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao));
+                        System.out.println(menu.gravarBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao,tempoB));
+                        log.escreverNoLog(menu.gravarBuscaBinaria(resulBB, procurado, buscaBinaria.comparacao,tempoB));
                         buscaBinaria.comparacao = 0;
                     }
 
@@ -113,12 +118,13 @@ public class Controlle {
                     menu.BuscaSequencialSelect();
                     menu.numeroProcurado();
                     int procurado = Integer.parseInt(ler.nextLine());
+                    double tempoS=buscaSequencial.getRuntime(vetor, procurado);
                     int resulBS = buscaSequencial.BuscaSeq(vetor, procurado);
                     if (resulBS == -1) {
                         menu.numeroProcuradoNEncontrado();
                     } else {
-                        System.out.println(menu.gravarBuscaSequencialD(resulBS, procurado, buscaSequencial.comparacao));
-                        log.escreverNoLog(menu.gravarBuscaBinaria(resulBS, procurado, buscaSequencial.comparacao));
+                        System.out.println(menu.gravarBuscaSequencialD(resulBS, procurado, buscaSequencial.comparacao,tempoS));
+                        log.escreverNoLog(menu.gravarBuscaBinaria(resulBS, procurado, buscaSequencial.comparacao,tempoS));
                         buscaSequencial.comparacao = 0;
                     }
 
@@ -132,18 +138,18 @@ public class Controlle {
                     String ord = ler.nextLine();
                     switch (ord) {
                         case "1":
-                            Teste testeBubble = new Teste();
                             BubbleSort bubbleSort = new BubbleSort();
-                            double tempoDeExecucaoBubble = testeBubble.getRuntime(vetor, bubbleSort);
-                            vetor = CV.clonarVetor(testeBubble.vet);
-                            menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao);
+                            double tempoDeExecucaoBubble = teste.getRuntime(vetor, bubbleSort);
+                            vetor = CV.clonarVetor(teste.vet);
+                            System.out.println(menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao));
+                            
                             log.escreverNoLog(menu.gravarBubble(tempoDeExecucaoBubble, bubbleSort.comparacao, bubbleSort.permutacao));
                             break;
                         case "2":
                             MergeSort mergeSort = new MergeSort();
                             double tempoDeExecucaoMerge = teste.getRuntime(vetor, mergeSort);
                             vetor = CV.clonarVetor(teste.vet);
-                            ;
+
                             System.out.println(menu.gravarMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.permutacao));
                             log.escreverNoLog(menu.gravarMerge(tempoDeExecucaoMerge, mergeSort.comparacao, mergeSort.comparacao));
                             break;

@@ -10,6 +10,7 @@ import Sort.HeapSort;
 import Sort.MergeSort;
 import Sort.QuickSort;
 import Util.Log;
+import Util.TesteSort;
 import Vetor.Vetor;
 import View.Menu;
 import com.sun.xml.internal.bind.v2.model.annotation.Quick;
@@ -27,6 +28,12 @@ public class Media extends Vetor {
     MergeSort merge = new MergeSort();
     QuickSort quick = new QuickSort();
     HeapSort heap = new HeapSort();
+    private long tempInicial;
+    TesteSort t = new TesteSort();
+    double tempoDeExecucaoQuick;
+    double tempoDeExecucaoHeap;
+    double tempoDeExecucaoMerge;
+    double tempoDeExecucaoBubble;
 
     /**
      * Método que roda 30 vezes todos os sorts, e calcúla a média de permutações
@@ -38,16 +45,23 @@ public class Media extends Vetor {
         int[] vetorParaOrdenar;
         for (int i = 0; i < 30; i++) {
             vetorParaOrdenar = clonarVetor(vetor_pronto);
-            bubble.sort(vetorParaOrdenar);
+            this.tempoDeExecucaoBubble = t.getRuntime(vetorParaOrdenar, bubble);
+//            bubble.sort(vetorParaOrdenar);
             vetorParaOrdenar = clonarVetor(vetor_pronto);
-            merge.sort(vetorParaOrdenar);
+            this.tempoDeExecucaoMerge = t.getRuntime(vetorParaOrdenar, merge);
+
+//            merge.sort(vetorParaOrdenar);
             vetorParaOrdenar = clonarVetor(vetor_pronto);
-            heap.sort(vetorParaOrdenar);
-            quick.sort(vetor_pronto);
+            this.tempoDeExecucaoHeap = t.getRuntime(vetorParaOrdenar, heap);
+
+//            heap.sort(vetorParaOrdenar);
+            this.tempoDeExecucaoQuick = t.getRuntime(vetor_pronto, quick);
+//            quick.sort(vetor_pronto);
         }
 
-        System.out.println(menu.gravarMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao));
-        gLog.escreverNoLog(menu.gravarMedia(bubble.comparacao, bubble.permutacao, merge.comparacao, merge.permutacao, heap.comparacao, heap.permutacao, quick.comparacao, quick.permutacao));
+        System.out.println(menu.gravarMedia(bubble.comparacao, bubble.permutacao,tempoDeExecucaoBubble, merge.comparacao, merge.permutacao,tempoDeExecucaoMerge, heap.comparacao, heap.permutacao,tempoDeExecucaoHeap,quick.comparacao, quick.permutacao,tempoDeExecucaoQuick));
+        gLog.escreverNoLog(menu.gravarMedia(bubble.comparacao, bubble.permutacao,tempoDeExecucaoBubble, merge.comparacao, merge.permutacao,tempoDeExecucaoMerge, heap.comparacao, heap.permutacao,tempoDeExecucaoHeap,quick.comparacao, quick.permutacao,tempoDeExecucaoQuick));
     }
 
 }
+

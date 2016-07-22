@@ -5,14 +5,14 @@
  */
 package Sort;
 
-import Util.InterfaceTeste;
 import Vetor.Vetor;
+import Util.InterfaceTesteSort;
 
 /**
  *
  * @author rafael
  */
-public class QuickSort extends Vetor implements InterfaceTeste<int[]> {
+public class QuickSort extends Vetor implements InterfaceTesteSort<int[]> {
 
     /**
      * Método de ordenação Quick Sort, recebe um vetor como parâmetro e o

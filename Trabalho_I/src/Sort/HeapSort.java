@@ -5,14 +5,14 @@
  */
 package Sort;
 
-import Util.InterfaceTeste;
 import Vetor.Vetor;
+import Util.InterfaceTesteSort;
 
 /**
  *
  * @author rafael
  */
-public class HeapSort extends Vetor implements InterfaceTeste<int[]> {
+public class HeapSort extends Vetor implements InterfaceTesteSort<int[]> {
 /**
      * Método de ordenação Heap Sort, recebe um vetor como parâmetro
      * e o retorna totalmente ordenado.
@@ -24,7 +24,7 @@ public class HeapSort extends Vetor implements InterfaceTeste<int[]> {
         buildheap(a);
 
         for (int i = a.length - 1; i >= 1; i--) {
-            permutacao++;
+            comparacao++;
             int temp = a[0];
             a[0] = a[i];
             a[i] = temp;
@@ -39,7 +39,7 @@ public class HeapSort extends Vetor implements InterfaceTeste<int[]> {
         max = i;
 
         if (child < n) {
-            comparacao++;
+            permutacao++;
             if (a[child] > a[max]) {
                 max = child;
             }
@@ -52,7 +52,7 @@ public class HeapSort extends Vetor implements InterfaceTeste<int[]> {
         }
 
         if (max != i) {
-            permutacao++;
+            comparacao++;
             int temp = a[i];
             a[i] = a[max];
             a[max] = temp;

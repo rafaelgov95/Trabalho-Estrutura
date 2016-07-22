@@ -13,27 +13,28 @@ import java.util.concurrent.TimeUnit;
  *
  * @author rafael
  */
-public class Teste {
+public class TesteSort {
 
     public int[] vet;
     long tempInicial;
 
     /**
-     * Método que roda Algum metodo T que recebe um Vetor T assim utilizando o metodo para fazer a ordenação e returna um tempo de gasto. 
+     * Método que roda Algum metodo T que recebe um Vetor T assim utilizando o
+     * metodo para fazer a ordenação e returna um tempo de gasto.
      *
-     * @param <T>    Valor Generico 
-     * @param valor  Vetor
-     * @param metodo  Qualquer Metodo Que use um vetor acima
+     * @param <T> Valor Generico
+     * @param valor Vetor
+     * @param metodo Qualquer Metodo Que use um vetor acima
      * @return Double
-     * 
+     *
      */
-    public <T> double getRuntime(T valor, InterfaceTeste<T> metodo) {
+    public <T> double getRuntime(T valor, InterfaceTesteSort<T> metodo) {
         this.tempInicial = System.nanoTime();
         this.vet = metodo.sort(valor);
         double tempo = System.nanoTime() - tempInicial;
 //        TimeUnit.SECONDS.convert(, TimeUnit.NANOSECONDS)
-        return (double)(tempo/ 1000000000.0);
-        
+        return (double) (tempo / 1000000000.0);
+
     }
 
 }

@@ -5,14 +5,14 @@
  */
 package Sort;
 
-import Util.InterfaceTeste;
 import Vetor.Vetor;
+import Util.InterfaceTesteSort;
 
 /**
  *
  * @author rafael
  */
-public class MergeSort extends Vetor implements InterfaceTeste<int[]> {
+public class MergeSort extends Vetor implements InterfaceTesteSort<int[]> {
 
     /**
      * Método de ordenação Merge Sort, recebe um vetor como parâmetro e o

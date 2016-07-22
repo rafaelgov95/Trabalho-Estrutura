@@ -13,16 +13,9 @@ import Vetor.Vetor;
  */
 public class BuscaSequencial extends Vetor {
 
-    public int BuscaSeq(int vetor[],int procurado) {
-//        comparacao++;
-//        if (n >= 0) {
-//            comparacao++;
-//            if (vetor[n] == procurado) {
-//                return n;
-//            } else {
-//                return BuscaSeqRecursiva(vetor, n - 1, procurado);
-//            }
-//        }
+    private long tempInicial;
+
+    public int BuscaSeq(int vetor[], int procurado) {
 
         for (int i = 0; i < vetor.length; i++) {
             comparacao++;
@@ -31,5 +24,13 @@ public class BuscaSequencial extends Vetor {
             }
         }
         return -1;
+    }
+
+    public double getRuntime(int[] valor, int procurado) {
+        this.tempInicial = System.nanoTime();
+        BuscaSeq(valor, procurado);
+        double tempo = System.nanoTime() - tempInicial;
+        return (double) (tempo / 1000000000.0);
+
     }
 }

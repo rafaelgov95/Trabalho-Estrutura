@@ -122,13 +122,15 @@ public class Menu {
      * @param resulBB Resultado do método de busca binaria
      * @param procurado Número que foi procurado
      * @param numComp Número de comparações realizadas
+     * @param tempo Número de tempo gasto em segundos
      * @return String
      */
-    public String gravarBuscaBinaria(int resulBB, int procurado, int numComp) {
+    public String gravarBuscaBinaria(int resulBB, int procurado, int numComp, double tempo) {
         return "Utilizando a Busca Binária:\n"
                 + "  > O número " + procurado + " está na posição: " + resulBB + "\n"
-                + "  > Foram feitas " + numComp + " comparações\n";
-                 
+                + "  > Foram feitas " + numComp + " comparações\n"
+                + "  > Tempo gasto em Segundos: " + String.format("%.5f", tempo) + " !";
+
     }
 
     /**
@@ -174,10 +176,11 @@ public class Menu {
      * @param comp Número de comparações realizadas
      * @return String
      */
-    public String gravarBuscaSequencialD(int resulBSD, int procurado, int comp) {
-        return "Utilizando a Busca Desordenado:\n"
+    public String gravarBuscaSequencialD(int resulBSD, int procurado, int comp, double tempo) {
+        return "Utilizando a Busca Sequencial:\n"
                 + "  > O número " + procurado + " está na posição: " + resulBSD + "\n"
-                + "  > Foram feitas " + comp + " comparações\n";
+                + "  > Foram feitas " + comp + " comparações\n"
+                + "  > Tempo gasto em Segundos: " + String.format("%.5f", tempo) + " !";
 
     }
 
@@ -221,20 +224,24 @@ public class Menu {
      * @param quickcompara Valor da Variavel Comparação do QuickSort
      * @return String
      */
-    public String gravarMedia(int bubblepermuta, int bubblecompara, int mergepermuta, int mergecompara, int heappermuta, int heapcompara, int quickpermuta, int quickcompara) {
+    public String gravarMedia(int bubblepermuta, int bubblecompara, double tempob, int mergepermuta, int mergecompara, double tempm, int heappermuta, int heapcompara, double tempoh, int quickpermuta, int quickcompara, double tempoq) {
         return "---------------------Resultado Media de 30 Comparações e Permutações-----------------------------"
                 + "\nMedia Utilizando BuubleSort\n"
-                + "A média de permutação : " + (bubblepermuta / 30) + " vezes!\n"
-                + "A média de comparação : " + (bubblecompara / 30) + " vezes!\n"
+                + "A média de permutação : " + (bubblecompara / 30) + " vezes!\n"
+                + "A média de comparação : " + (bubblepermuta / 30) + " vezes!\n"
+                + "Tempo Gasto em Segundos : " + String.format("%.5f", tempob) + " !\n"
                 + "\nMedia Utilizando Merge\n"
                 + "A média de permutação : " + (mergepermuta / 30) + " vezes!\n"
                 + "A média de comparação : " + (mergecompara / 30) + " vezes!\n"
+                + "Tempo Gasto em Segundos : " + String.format("%.5f", tempm) + "  !\n"
                 + "\nMedia Utilizando Quick\n"
                 + "A média de permutação : " + (quickpermuta / 30) + " vezes!\n"
                 + "A média de comparação : " + (quickcompara / 30) + " vezes!\n"
+                + "Tempo Gasto em Segundos : " + String.format("%.5f", tempoh) + " !\n"
                 + "\nMedia Utilizando Heap\n"
-                + "A média de permutação : " + (heappermuta / 30) + " vezes!\n"
-                + "A média de comparação : " + (heapcompara / 30) + " vezes!\n"
+                + "A média de permutação : " + (heapcompara / 30) + " vezes!\n"
+                + "A média de comparação : " + (heappermuta / 30) + " vezes!\n"
+                + "Tempo Gasto em Segundos : " + String.format("%.5f", tempoq) + " !\n"
                 + "\"--------------------------------------------->FIM<------------------------------------------\"";
     }
 
@@ -355,14 +362,14 @@ public class Menu {
      * Método de impressão: COMEÇO DO ARQUVI LOG.
      */
     public void logInicia() {
-        System.out.println("########################################INICIO LOG######################\n");
+        System.out.println("################################################INICIO LOG##########################################\n");
     }
 
     /**
      * Método de impressão: FIM DO LOG.
      */
     public void logFim() {
-        System.out.println("########################################FIM LOG##########################\n");
+        System.out.println("################################################FIM LOG##########################################\n");
     }
 
 }

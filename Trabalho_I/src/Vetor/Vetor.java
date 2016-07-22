@@ -62,4 +62,20 @@ public class Vetor {
         }
         return true;
     }
+
+    /**
+     * Método de para Troca de Valores.
+     *
+     * @param vet Vetor onde Sera feita a troca de valores.
+     * @param a valor a
+     * @param b valor b
+     * @return return Vetor
+     */
+    public int[] MetodoTrocar(int vet[], int a, int b) {
+
+        int aux = vet[a];
+        vet[a] = vet[b];
+        vet[b] = aux;
+        return vet;
+    }
 }

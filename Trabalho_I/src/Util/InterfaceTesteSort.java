@@ -9,7 +9,8 @@ package Util;
  *
  * @author rafael
  */
-public interface InterfaceTeste<T> {
+public interface InterfaceTesteSort<T> {
     
-    int[] sort (T valor);
+    int[] sort (T vetor);
+
 }
