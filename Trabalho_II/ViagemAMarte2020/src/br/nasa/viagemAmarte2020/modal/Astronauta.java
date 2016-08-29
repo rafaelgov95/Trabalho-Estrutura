@@ -13,16 +13,7 @@ import java.util.Random;
  * @author rafael
  */
 public class Astronauta {
-  protected PilhaDeTesteDaNasa pilha;
-    public void criarPilhaDeTeste(int n) {
-        pilha = new PilhaDeTesteDaNasa(n);
-        Random gerador = new Random();
-        while(pilha.getTopo()<=0){
-            Experimento exp = new  Experimento();
-            exp.numero=gerador.nextInt();
-            pilha.adicionarExperimento(exp);
-        }
-    }
-    
-    
+
+    public PilhaDeTesteDaNasa pilha;
+
 }
