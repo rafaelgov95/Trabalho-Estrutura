@@ -35,7 +35,7 @@ public class ViagemAMarte2020 {
            
         // Partiu MissaoMarte       
         // Em Marte
-        missaoMarte.ProcessaDados();
+        missaoMarte.ProcessaDadosEmSoloMarciano();
         //Precesamento dos Testes. 
         missaoMarte.RetornoDeMarteComOsTestes();
         
