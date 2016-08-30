@@ -39,11 +39,7 @@ public class ViagemAMarte2020 {
         //Precesamento dos Testes. 
         missaoMarte.RetornoDeMarteComOsTestes();
         
-       //Imprimi os testes
-        for (int i = 0; i < n-1; i++) {
-            
-        }
-        
+       
 
     }
 
