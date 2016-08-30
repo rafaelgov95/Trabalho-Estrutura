@@ -12,26 +12,26 @@ import br.nasa.viagemAmarte2020.modal.Experimento;
  * @author rafael
  */
 public class PilhaDeTesteDaNasa {
-
-    private Experimento pilhaDeExperimentoDaNasa[];
-    private int topo;
+// mudado Experimento para public para testes;
+   public Experimento pilhaDeExperimentoDaNasa[];
+    private int index;
     public int tamanho;
 
-    public int getTopo() {
-        return topo;
+    public int getindex() {
+        return this.index;
     }
 
     public PilhaDeTesteDaNasa(int n) {
         pilhaDeExperimentoDaNasa = new Experimento[n];
-        topo = 0;
-        tamanho = n;
+        index = 0;
     }
 
     public void adicionarExperimento(Experimento exp) {
         if (pilhaDeExperimentoDaNasa != null) {
-            if (topo < pilhaDeExperimentoDaNasa.length) {
-                topo++;
-                pilhaDeExperimentoDaNasa[topo] = exp;
+            if (index < pilhaDeExperimentoDaNasa.length) {
+
+                pilhaDeExperimentoDaNasa[index] = exp;
+                index++;
             } else {
                 System.out.println("OverFlow!!");
             }
@@ -45,10 +45,11 @@ public class PilhaDeTesteDaNasa {
     public Experimento desempilha() {
 
         if (pilhaDeExperimentoDaNasa != null) {
-            if (topo > 0) {
-                Experimento exp= new Experimento();
-                exp = pilhaDeExperimentoDaNasa[topo];
-                this.topo--;
+            if (index>0) {
+
+                Experimento exp;
+                exp = (Experimento)pilhaDeExperimentoDaNasa[(index-1)];
+                this.index--;
                 return exp;
             } else {
                 System.out.println("UnderFlow!!");
