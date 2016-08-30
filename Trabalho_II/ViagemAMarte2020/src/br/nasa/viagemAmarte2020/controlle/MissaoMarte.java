@@ -49,7 +49,7 @@ public class MissaoMarte {
             astronauta.pilha.adicionarExperimento(exp);
         }
           for (Experimento exp : astronauta.pilha.pilhaDeExperimentoDaNasa ) {
-            System.out.println("Experimento Em Pilha : "+exp.numero);
+            System.out.println("Experimento no Array da  Pilha : "+exp.numero);
         }
     }
 
