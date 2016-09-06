@@ -12,8 +12,7 @@ import br.nasa.viagemAmarte2020.modal.Experimento;
  * @author rafael
  */
 public class PilhaDeTesteDaNasa {
-// mudado Experimento para public para testes;
-   public Experimento pilhaDeExperimentoDaNasa[];
+    public Experimento pilhaDeExperimentoDaNasa[];
     private int index;
 
     public int getindex() {
@@ -28,7 +27,6 @@ public class PilhaDeTesteDaNasa {
     public void adicionarExperimento(Experimento exp) {
         if (pilhaDeExperimentoDaNasa != null) {
             if (index < pilhaDeExperimentoDaNasa.length) {
-
                 pilhaDeExperimentoDaNasa[index] = exp;
                 index++;
             } else {

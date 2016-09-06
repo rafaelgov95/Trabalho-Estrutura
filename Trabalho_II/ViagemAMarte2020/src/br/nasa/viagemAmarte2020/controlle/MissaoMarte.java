@@ -5,6 +5,7 @@
  */
 package br.nasa.viagemAmarte2020.controlle;
 
+import br.nasa.viagemAmarte2020.estruturasDeDados.Fila.Fila;
 import br.nasa.viagemAmarte2020.estruturasDeDados.Lista.Lista;
 import br.nasa.viagemAmarte2020.estruturasDeDados.Pilha.PilhaDeTesteDaNasa;
 import br.nasa.viagemAmarte2020.modal.Astronauta;
@@ -20,13 +21,11 @@ import java.util.Random;
 public class MissaoMarte {
 
     Lista<Experimento> listaExperimento;
-
+    Fila<Cientista> filaCientistas;
     public Astronauta astronauta;
 
-    //futuramente aqui sera uma fila de cientistas
-    public Cientista cientistas[];
-
     public MissaoMarte(int n) {
+        filaCientistas = new Fila();
         listaExperimento = new Lista();
         astronauta = new Astronauta();
         contrataCientistas(n);
@@ -34,10 +33,10 @@ public class MissaoMarte {
     }
 
     private void contrataCientistas(int n) {
-        cientistas = new Cientista[n];
+
         for (int i = 0; i < n; i++) {
-            Cientista cient = new Cientista(i);
-            cientistas[i] = cient;
+            Cientista cientista = new Cientista(i);
+            filaCientistas.enfileira(cientista);
         }
     }
 
@@ -67,25 +66,30 @@ public class MissaoMarte {
     }
 
     public void RetornoDeMarteComOsTestes() {
-        for (Cientista cientista : cientistas) {
+        while (filaCientistas.espia() != null) {
             int j = 1;
             boolean achou = false;
             while (j < (listaExperimento.getIndex()) || achou == false) {
-                if (cientista.numeroDoExperimento == listaExperimento.buscar(j).numero) {
-                    cientista.recebeExperimento((Experimento) listaExperimento.buscar(j));
+                if (filaCientistas.espia().numeroDoExperimento == listaExperimento.buscar(j).numero) {
+                    filaCientistas.espia().recebeExperimento((Experimento) listaExperimento.buscar(j));
                     achou = true;
+                    System.out.println("Cientista com numero " + filaCientistas.espia().numeroDoExperimento + " com o experimento " + filaCientistas.espia().exp.numero + " Resultado foi: " + filaCientistas.espia().exp.resultado);
+
                     listaExperimento.remove(j);
+                    filaCientistas.desenfileira();
                 }
+
                 j++;
             }
+
         }
 //        System.out.println("Cientista com numero " + cientistas[0].numeroDoExperimento + " Com o experimento" + cientistas[0].exp.numero);
 //        System.out.println("Cientista com numero " + cientistas[1].numeroDoExperimento + " Com o experimento" + cientistas[1].exp.numero);
 //        
-        for (Cientista cientista : cientistas) {
-
-            System.out.println("Cientista com numero " + cientista.numeroDoExperimento + " Com o experimento" + cientista.exp.numero);
-        }
+//        for (int i = 0; i < filaCientistas.getIndex(); i++) {
+//
+//            System.out.println("Cientista com numero " + filaCientistas.desenfileira().numeroDoExperimento + " Com o experimento" + filaCientistas.desenfileira().exp.numero);
+//        }
     }
 
 }

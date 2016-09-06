@@ -149,7 +149,14 @@ public class Lista<T> {
         } else if (i >= index) {
             removeFim();
         } else {
+            No<T> Anterior = buscarAnt(i);
+            No<T> Atual = Anterior.getProx();
+            No<T> Prox = Atual.getProx();
 
+            Anterior.setProx(Prox);
+            Prox.setAnt(Anterior);
+
+            return true;
         }
         return false;
     }

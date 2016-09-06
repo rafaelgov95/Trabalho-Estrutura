@@ -11,5 +11,5 @@ package br.nasa.viagemAmarte2020.modal;
  */
 public class Experimento {
    public  int numero;
-   public  boolean resultado;
+   public boolean resultado;
 }

@@ -21,25 +21,20 @@ public class ViagemAMarte2020 {
      */
     public static void main(String[] args) throws IOException {
         BufferedReader leia = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Informe a Quantidade de Testes Realizados");
         int n = Integer.parseInt(leia.readLine());
         //MISSAO MARTE 
         // Prepara Testes para ver se existe agua em marte e possivel colinizacao.
 
-        System.out.println("Informe a Quantidade de Testes Realizados");
-       
         MissaoMarte missaoMarte = new MissaoMarte(n);
-        
+
         //Cientistas Sao Contratados para criar uma Civilização em marte Denominada Deaudst na lingua
         //perdida de Arquimeos, onde foi contestado a existencia de outras civilizacoes OVN.
-        
-           
         // Partiu MissaoMarte       
         // Em Marte
         missaoMarte.ProcessaDadosEmSoloMarciano();
         //Precesamento dos Testes. 
         missaoMarte.RetornoDeMarteComOsTestes();
-        
-       
 
     }
 

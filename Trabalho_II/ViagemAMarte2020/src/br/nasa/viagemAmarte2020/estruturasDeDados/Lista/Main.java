@@ -20,19 +20,9 @@ public class Main {
         megaList.addFinal("Lucas");
         megaList.addFinal("Jessica");
         megaList.add(7, "S2love");
-//        megaList.add(8, "S2love");
+        megaList.remove(3);
         megaList.imprimir();
         System.out.println("TESTES\n");
-          System.out.println(megaList.buscarAnt(7).getChave());
-//      
-          System.out.println(megaList.buscarAnt(1).getChave());
-          
-//        System.out.println(megaList.buscar(1));
-//        System.out.println(megaList.buscar(2));
-//        System.out.println(megaList.buscar(3));
-//        System.out.println(megaList.buscar(4));
-//        System.out.println(megaList.buscar(5));
-//        System.out.println(megaList.buscar(6));
 
     }
 
