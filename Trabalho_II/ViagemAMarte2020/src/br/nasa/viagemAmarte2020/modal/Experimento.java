@@ -6,7 +6,8 @@
 package br.nasa.viagemAmarte2020.modal;
 
 /**
- *
+ * Classe que modela um experimento:
+ * Possui um número de identificação, e um boolean, que guardará seu resultado.
  * @author rafael
  */
 public class Experimento {

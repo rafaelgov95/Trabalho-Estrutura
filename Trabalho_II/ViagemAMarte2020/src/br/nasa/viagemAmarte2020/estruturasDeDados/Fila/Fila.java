@@ -6,6 +6,7 @@
 package br.nasa.viagemAmarte2020.estruturasDeDados.Fila;
 
 /**
+ * Classe que modela uma fila. Possui os nós anterior e próximo, e um tamanho.
  *
  * @author rafael
  * @param <T>
@@ -17,14 +18,31 @@ public class Fila<T> {
 
     private Integer index = null;
 
+    /**
+     * Retorna o tamanho da fila.
+     *
+     * @return int
+     */
     public Integer getIndex() {
         return index;
     }
 
+    /**
+     * Seta o tamanho da fila.
+     *
+     * @param index
+     */
     public void setIndex(Integer index) {
         this.index = index;
     }
 
+    /**
+     * Método enfileirar: Recebe um objeto qualquer como parâmetro, testa se o
+     * tamanho atual é nulo, se sim, o objeto entrará na primeira posição, se
+     * não, o objeto é setado como próximo do antigo último.
+     *
+     * @param qualquercoisa Object
+     */
     public void enfileira(T qualquercoisa) {
         if (index == null) {
             index = 0;
@@ -46,6 +64,11 @@ public class Fila<T> {
 
     }
 
+    /**
+     * Método de impressão: Percorre e imprime o conteúdo de cada elemento da
+     * fila.
+     *
+     */
     public void imprimir() {
         if (index != null && index > 0) {
             System.out.println(ptr_primeiro.getChave());
@@ -59,15 +82,25 @@ public class Fila<T> {
         }
     }
 
+    /**
+     * Retorna o conteúdo da primeira posição da fila.
+     *
+     * @return
+     */
     public T espia() {
         if (index > 0 && index != null) {
             return ptr_primeiro.getChave();
         } else {
-           
+
             return null;
         }
     }
 
+    /**
+     * Retira e retorna o primeiro elemento da fila
+     *
+     * @return
+     */
     public T desenfileira() {
         if (index > 0 && index != null) {
             No<T> novoNo = ptr_primeiro;

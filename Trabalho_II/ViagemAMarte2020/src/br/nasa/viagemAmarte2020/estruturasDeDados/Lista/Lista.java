@@ -6,6 +6,8 @@
 package br.nasa.viagemAmarte2020.estruturasDeDados.Lista;
 
 /**
+ * Classe que modela uma lista genêrica. Por ser duplamente encadeada, além do
+ * seu tamanho, guarda a referência para os nós anterior e próximo.
  *
  * @author rafael
  */
@@ -15,16 +17,31 @@ public class Lista<T> {
     private No<T> ptr_ultimo;
     private int index;
 
+    /**
+     * Retorna o tamanho da lista.
+     *
+     * @return int
+     */
     public int getIndex() {
         return index;
     }
 
+    /**
+     * Construtor da classe: Seta as variáveis globais anterior e último como
+     * nulos, e o tamanho como zero.
+     */
     public Lista() {
         ptr_primeiro = null;
         ptr_ultimo = null;
         index = 0;
     }
 
+    /**
+     * Método adicionar: Recebe um objeto como parâmetro, e seta-o na última
+     * posição do vetor.
+     *
+     * @param qualquercoisa
+     */
     public void addFinal(T qualquercoisa) {
         if (ptr_primeiro == null) {
             ptr_primeiro = new No<>();
@@ -46,6 +63,12 @@ public class Lista<T> {
 
     }
 
+    /**
+     * Método adicionar: Recebe um objeto como parâmetro, e seta-o na primeira
+     * posição do vetor.
+     *
+     * @param qualquercoisa
+     */
     public void addPrimeira(T qualquercoisa) {
         if (ptr_primeiro == null) {
             ptr_primeiro = new No<>();
@@ -67,6 +90,9 @@ public class Lista<T> {
 
     }
 
+    /**
+     * Método de impressão: Exibe o conteúdo de cada elemento contido na lista.
+     */
     public void imprimir() {
         if (index > 0) {
             System.out.println(ptr_primeiro.getChave());
@@ -80,6 +106,13 @@ public class Lista<T> {
         }
     }
 
+    /**
+     * Método de busca: Recebe um índice inteiro como parâmetro. Percorre a
+     * lista, até encotrar a posição buscada, então, retorna-a.
+     *
+     * @param i
+     * @return
+     */
     public T buscar(int i) {
         No<T> percorre = ptr_primeiro;
         if (index > 0) {
@@ -97,6 +130,12 @@ public class Lista<T> {
         return null;
     }
 
+    /**
+     * Método de busca:
+     *
+     * @param i
+     * @return
+     */
     public No<T> buscarAnt(int i) {
         if (i == 1) {
             return ptr_ultimo;
@@ -119,6 +158,12 @@ public class Lista<T> {
         }
     }
 
+    /**
+     * Método de remoção do final: Remove o último elemento da lista. Retorna
+     * ainda um boolean, dependendo de como se comportou a remoção.
+     *
+     * @return boolean
+     */
     public boolean removeFim() {
         if (index == 1) {
             removeInicio();
@@ -132,6 +177,12 @@ public class Lista<T> {
         return false;
     }
 
+    /**
+     * Método de remoção do início: Remove o primeiro elemento da lista. Retorna
+     * ainda um boolean, dependendo de como se comportou a remoção.
+     *
+     * @return boolean
+     */
     public boolean removeInicio() {
         if (index > 0) {
             ptr_primeiro.getProx().setAnt(ptr_ultimo);
@@ -143,6 +194,14 @@ public class Lista<T> {
         return false;
     }
 
+    /**
+     * Método de remoção por índice. Percorre o vetor até encontrar a posição
+     * desejada, e a remove. Retorna ainda um boolean, dependendo de como se
+     * comportou a remoção.
+     *
+     * @param i
+     * @return boolean
+     */
     public boolean remove(int i) {
         if (i == 0) {
             removeInicio();
@@ -161,6 +220,13 @@ public class Lista<T> {
         return false;
     }
 
+    /**
+     * Método de adição: Recebe um índice e um objeto como parâmetro. Percorre a
+     * lista até encontrar a posição indicada, e insere o objeto nela.
+     *
+     * @param i
+     * @param qualquercoisa
+     */
     public void add(int i, T qualquercoisa) {
         if (ptr_primeiro != null) {
             if (i >= index) {

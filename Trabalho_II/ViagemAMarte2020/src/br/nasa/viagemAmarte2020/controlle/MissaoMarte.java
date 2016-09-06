@@ -15,6 +15,8 @@ import br.nasa.viagemAmarte2020.modal.Experimento;
 import java.util.Random;
 
 /**
+ * Classe que controlará todas as outras. Possui um astronauta, uma lista de
+ * cientistas e uma lista de experimentos.
  *
  * @author rafael
  */
@@ -24,6 +26,13 @@ public class MissaoMarte {
     Fila<Cientista> filaCientistas;
     public Astronauta astronauta;
 
+    /**
+     * Construtor da classe: Recebe um inteiro n. Instacia a lista de
+     * experimentos, e um astronauta, chama os métodos para criar n cientistas,
+     * e n testes.
+     *
+     * @param n
+     */
     public MissaoMarte(int n) {
         filaCientistas = new Fila();
         listaExperimento = new Lista();
@@ -32,6 +41,12 @@ public class MissaoMarte {
         criarPilhaDeTeste(n);
     }
 
+    /**
+     * Método para criar cientistas: Recebe um inteiro n, cria n cientistas e
+     * adiciona-os ao vetor cientistas.
+     *
+     * @param n
+     */
     private void contrataCientistas(int n) {
 
         for (int i = 0; i < n; i++) {
@@ -40,6 +55,13 @@ public class MissaoMarte {
         }
     }
 
+    /**
+     * Método para criar Experimentos: Recebe um inteiro n, cria n testes e
+     * adiciona-os a lista de teste do astronauta. Ao final, exibe a
+     * identificação de cada experimento criado.
+     *
+     * @param n
+     */
     private void criarPilhaDeTeste(int n) {
         astronauta.pilha = new PilhaDeTesteDaNasa(n);
         for (int i = 0; i < n; i++) {
@@ -52,6 +74,11 @@ public class MissaoMarte {
         }
     }
 
+    /**
+     * Método para gerar o resultado dos testes: Seta no resultado de cada
+     * teste, um boolean, que é criado aleatoriamente. Em seguida, exibe o
+     * número identificador de cada experimento.
+     */
     public void ProcessaDadosEmSoloMarciano() {
         Random gerador = new Random();
         while (astronauta.pilha.getindex() > 0) {
@@ -65,6 +92,14 @@ public class MissaoMarte {
         }
     }
 
+    /**
+     * Método que combina cada cientista com seu respectivo experimento:
+     * Percorre a lista de cientistas e a lista de experimentos, a cada
+     * combinação feita, o experimento é removido da lista de experimentos. Em
+     * seguida, exibe para cada cientista seu o número de identificação dele em
+     * relação ao experimento, e o número de identificação do próprio
+     * experimento.
+     */
     public void RetornoDeMarteComOsTestes() {
         while (filaCientistas.espia() != null) {
             int j = 1;

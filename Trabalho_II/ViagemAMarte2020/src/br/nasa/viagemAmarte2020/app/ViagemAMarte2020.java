@@ -11,7 +11,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- *
+ * Classe Main do trabalho.
+ * Responsável apenas por criar o controlador do programa,
+ * e chamar os métodos de exibição dos resultados.
+ * Irá ler um inteiro n, que indica a quantidade de testes a serem realizados,
+ * e passa-o como parâmetro na criação do controlador MissaoMarte.
  * @author rafael
  */
 public class ViagemAMarte2020 {

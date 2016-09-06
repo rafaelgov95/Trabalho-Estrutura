@@ -6,9 +6,10 @@
 package br.nasa.viagemAmarte2020.modal;
 
 import br.nasa.viagemAmarte2020.estruturasDeDados.Pilha.PilhaDeTesteDaNasa;
-import java.util.Random;
 
 /**
+ * Classe que modela um Astronauta: Possui apenas um objeto do tipo
+ * PilhaDeTesteDaNasa.
  *
  * @author rafael
  */
