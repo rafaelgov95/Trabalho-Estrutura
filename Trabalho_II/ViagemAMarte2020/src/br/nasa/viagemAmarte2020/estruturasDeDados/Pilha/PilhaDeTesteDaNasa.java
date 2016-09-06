@@ -15,7 +15,6 @@ public class PilhaDeTesteDaNasa {
 // mudado Experimento para public para testes;
    public Experimento pilhaDeExperimentoDaNasa[];
     private int index;
-    public int tamanho;
 
     public int getindex() {
         return this.index;
@@ -46,7 +45,6 @@ public class PilhaDeTesteDaNasa {
 
         if (pilhaDeExperimentoDaNasa != null) {
             if (index>0) {
-
                 Experimento exp;
                 exp = (Experimento)pilhaDeExperimentoDaNasa[(index-1)];
                 this.index--;

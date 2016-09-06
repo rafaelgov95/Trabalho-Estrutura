@@ -5,12 +5,12 @@
  */
 package br.nasa.viagemAmarte2020.controlle;
 
+import br.nasa.viagemAmarte2020.estruturasDeDados.Lista.Lista;
 import br.nasa.viagemAmarte2020.estruturasDeDados.Pilha.PilhaDeTesteDaNasa;
 import br.nasa.viagemAmarte2020.modal.Astronauta;
 import br.nasa.viagemAmarte2020.modal.Cientista;
 import br.nasa.viagemAmarte2020.modal.Experimento;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
 /**
@@ -19,7 +19,7 @@ import java.util.Random;
  */
 public class MissaoMarte {
 
-    List<Experimento> listaExperimento;
+    Lista<Experimento> listaExperimento;
 
     public Astronauta astronauta;
 
@@ -27,7 +27,7 @@ public class MissaoMarte {
     public Cientista cientistas[];
 
     public MissaoMarte(int n) {
-        listaExperimento = new ArrayList<>();
+        listaExperimento = new Lista();
         astronauta = new Astronauta();
         contrataCientistas(n);
         criarPilhaDeTeste(n);
@@ -48,8 +48,8 @@ public class MissaoMarte {
             exp.numero = i;
             astronauta.pilha.adicionarExperimento(exp);
         }
-          for (Experimento exp : astronauta.pilha.pilhaDeExperimentoDaNasa ) {
-            System.out.println("Experimento no Array da  Pilha : "+exp.numero);
+        for (Experimento exp : astronauta.pilha.pilhaDeExperimentoDaNasa) {
+            System.out.println("Experimento no Array da  Pilha : " + exp.numero);
         }
     }
 
@@ -58,23 +58,22 @@ public class MissaoMarte {
         while (astronauta.pilha.getindex() > 0) {
             Experimento exp = (Experimento) astronauta.pilha.desempilha();
             exp.resultado = gerador.nextBoolean();
-            listaExperimento.add(exp);
+            listaExperimento.addFinal(exp);
         }
         System.out.println("Lista de Experimentos");
-        for (Experimento exp : listaExperimento) {
-            System.out.println("Experimento : "+exp.numero);
+        for (int i = 1; i < listaExperimento.getIndex(); i++) {
+            System.out.println("Experimento : " + listaExperimento.buscar(i).numero);
         }
     }
 
     public void RetornoDeMarteComOsTestes() {
         for (Cientista cientista : cientistas) {
-            int j = 0;
+            int j = 1;
             boolean achou = false;
-            while (j < (listaExperimento.size() - 1) || achou == false) {
-                if (cientista.numeroDoExperimento == listaExperimento.get(j).numero) {
-                    cientista.recebeExperimento((Experimento) listaExperimento.get(j));
+            while (j < (listaExperimento.getIndex()) || achou == false) {
+                if (cientista.numeroDoExperimento == listaExperimento.buscar(j).numero) {
+                    cientista.recebeExperimento((Experimento) listaExperimento.buscar(j));
                     achou = true;
-//                    System.out.println("deucerto" + listaExperimento.get(j).numero);
                     listaExperimento.remove(j);
                 }
                 j++;

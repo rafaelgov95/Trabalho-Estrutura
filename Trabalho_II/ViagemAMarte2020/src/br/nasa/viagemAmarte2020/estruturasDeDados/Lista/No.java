@@ -1,35 +1,42 @@
-package br.nasa.viagemAmarte2020.estruturasDeDados.Lista;
-/** 
- * @author rafael
- *
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+package br.nasa.viagemAmarte2020.estruturasDeDados.Lista;
 
-public class No {
-	private No anterior;		
-	private No proximo;
-	private String valor;		
-	//Define valor do nó.
-	public void setValor(String valor) {
-		this.valor = valor;
-	}
-	//Retorna valor do nó.
-	public String getValor() {
-		return valor;
-	}
-	//Define nó anterior.
-	public void setAnterior(No anterior) {
-		this.anterior = anterior;
-	}
-	//Retorna nó anterior
-	public No getAnterior() {
-		return anterior;
-	}
-	//Define proximo nó.
-	public void setProximo(No proximo) {
-		this.proximo = proximo;
-	}
-	//Retorna proximo nó
-	public No getProximo() {
-		return proximo;
-	}
+/**
+ *
+ * @author rafael
+ */
+public class No<T> {
+
+    private T chave;
+    private No<T> prox;
+    private No<T> ant;
+
+    public T getChave() {
+        return chave;
+    }
+
+    public void setChave(T chave) {
+        this.chave = chave;
+    }
+
+    public No getProx() {
+        return prox;
+    }
+
+    public void setProx(No prox) {
+        this.prox = prox;
+    }
+
+    public No getAnt() {
+        return ant;
+    }
+
+    public void setAnt(No ant) {
+        this.ant = ant;
+    }
+
 }
